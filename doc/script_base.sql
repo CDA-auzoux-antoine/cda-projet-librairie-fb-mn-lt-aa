@@ -9,8 +9,8 @@
 
 CREATE TABLE Livre(
         IdLivre     Int  Auto_increment  NOT NULL ,
-        Titre       Varchar (100) NOT NULL ,
-        Auteur      Varchar (100) NOT NULL ,
+        Titre       Varchar (50) NOT NULL ,
+        Auteur      Varchar (50) NOT NULL ,
         NombrePages Int NOT NULL ,
         Genre       Varchar (30) NOT NULL ,
         Prix        Int NOT NULL
@@ -27,20 +27,36 @@ CREATE TABLE Adresse(
         NumeroRue  Int NOT NULL ,
         NomRue     Varchar (100) NOT NULL ,
         CodePostal Int NOT NULL ,
-        Ville      Varchar (100) NOT NULL
+        Ville      Varchar (50) NOT NULL
 	,CONSTRAINT Adresse_PK PRIMARY KEY (IdAdresse)
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: Commande
+# Table: TypeCompte
 #------------------------------------------------------------
 
-CREATE TABLE Commande(
-        IdCommande Int  Auto_increment  NOT NULL ,
-        Date       Date NOT NULL ,
-        IdClient   Int NOT NULL
-	,CONSTRAINT Commande_PK PRIMARY KEY (IdCommande)
+CREATE TABLE TypeCompte(
+        IdTypeCompte Int NOT NULL ,
+        Type         Varchar (20) NOT NULL
+	,CONSTRAINT TypeCompte_PK PRIMARY KEY (IdTypeCompte)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Compte
+#------------------------------------------------------------
+
+CREATE TABLE Compte(
+        IdCompte     Int  Auto_increment  NOT NULL ,
+        Login        Varchar (15) NOT NULL ,
+        Password     Varchar (200) NOT NULL ,
+        Nom          Varchar (50) NOT NULL ,
+        Prenom       Varchar (50) NOT NULL ,
+        IdTypeCompte Int NOT NULL
+	,CONSTRAINT Compte_PK PRIMARY KEY (IdCompte)
+
+	,CONSTRAINT Compte_TypeCompte_FK FOREIGN KEY (IdTypeCompte) REFERENCES TypeCompte(IdTypeCompte)
 )ENGINE=InnoDB;
 
 
@@ -54,6 +70,24 @@ CREATE TABLE Client(
         IdAdresse    Int NOT NULL ,
         IdCompte     Int NOT NULL
 	,CONSTRAINT Client_PK PRIMARY KEY (IdClient)
+
+	,CONSTRAINT Client_Adresse_FK FOREIGN KEY (IdAdresse) REFERENCES Adresse(IdAdresse)
+	,CONSTRAINT Client_Compte0_FK FOREIGN KEY (IdCompte) REFERENCES Compte(IdCompte)
+	,CONSTRAINT Client_Compte_AK UNIQUE (IdCompte)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Commande
+#------------------------------------------------------------
+
+CREATE TABLE Commande(
+        IdCommande Int  Auto_increment  NOT NULL ,
+        Date       Date NOT NULL ,
+        IdClient   Int NOT NULL
+	,CONSTRAINT Commande_PK PRIMARY KEY (IdCommande)
+
+	,CONSTRAINT Commande_Client_FK FOREIGN KEY (IdClient) REFERENCES Client(IdClient)
 )ENGINE=InnoDB;
 
 
@@ -65,22 +99,9 @@ CREATE TABLE Libraire(
         IdLibraire Int  Auto_increment  NOT NULL ,
         IdCompte   Int NOT NULL
 	,CONSTRAINT Libraire_PK PRIMARY KEY (IdLibraire)
-)ENGINE=InnoDB;
 
-
-#------------------------------------------------------------
-# Table: Compte
-#------------------------------------------------------------
-
-CREATE TABLE Compte(
-        IdCompte   Int  Auto_increment  NOT NULL ,
-        Login      Varchar (100) NOT NULL ,
-        Password   Varchar (100) NOT NULL ,
-        Nom        Varchar (100) NOT NULL ,
-        Prenom     Varchar (100) NOT NULL ,
-        IdClient   Int NOT NULL ,
-        IdLibraire Int NOT NULL
-	,CONSTRAINT Compte_PK PRIMARY KEY (IdCompte)
+	,CONSTRAINT Libraire_Compte_FK FOREIGN KEY (IdCompte) REFERENCES Compte(IdCompte)
+	,CONSTRAINT Libraire_Compte_AK UNIQUE (IdCompte)
 )ENGINE=InnoDB;
 
 
@@ -93,63 +114,8 @@ CREATE TABLE detailCommande(
         IdCommande Int NOT NULL ,
         Quantite   Int NOT NULL
 	,CONSTRAINT detailCommande_PK PRIMARY KEY (IdLivre,IdCommande)
+
+	,CONSTRAINT detailCommande_Livre_FK FOREIGN KEY (IdLivre) REFERENCES Livre(IdLivre)
+	,CONSTRAINT detailCommande_Commande0_FK FOREIGN KEY (IdCommande) REFERENCES Commande(IdCommande)
 )ENGINE=InnoDB;
 
-
-
-
-ALTER TABLE Commande
-	ADD CONSTRAINT Commande_Client0_FK
-	FOREIGN KEY (IdClient)
-	REFERENCES Client(IdClient);
-
-ALTER TABLE Client
-	ADD CONSTRAINT Client_Adresse0_FK
-	FOREIGN KEY (IdAdresse)
-	REFERENCES Adresse(IdAdresse);
-
-ALTER TABLE Client
-	ADD CONSTRAINT Client_Compte1_FK
-	FOREIGN KEY (IdCompte)
-	REFERENCES Compte(IdCompte);
-
-ALTER TABLE Client 
-	ADD CONSTRAINT Client_Compte0_AK 
-	UNIQUE (IdCompte);
-
-ALTER TABLE Libraire
-	ADD CONSTRAINT Libraire_Compte0_FK
-	FOREIGN KEY (IdCompte)
-	REFERENCES Compte(IdCompte);
-
-ALTER TABLE Libraire 
-	ADD CONSTRAINT Libraire_Compte0_AK 
-	UNIQUE (IdCompte);
-
-ALTER TABLE Compte
-	ADD CONSTRAINT Compte_Client0_FK
-	FOREIGN KEY (IdClient)
-	REFERENCES Client(IdClient);
-
-ALTER TABLE Compte
-	ADD CONSTRAINT Compte_Libraire1_FK
-	FOREIGN KEY (IdLibraire)
-	REFERENCES Libraire(IdLibraire);
-
-ALTER TABLE Compte 
-	ADD CONSTRAINT Compte_Client0_AK 
-	UNIQUE (IdClient);
-
-ALTER TABLE Compte 
-	ADD CONSTRAINT Compte_Libraire1_AK 
-	UNIQUE (IdLibraire);
-
-ALTER TABLE detailCommande
-	ADD CONSTRAINT detailCommande_Livre0_FK
-	FOREIGN KEY (IdLivre)
-	REFERENCES Livre(IdLivre);
-
-ALTER TABLE detailCommande
-	ADD CONSTRAINT detailCommande_Commande1_FK
-	FOREIGN KEY (IdCommande)
-	REFERENCES Commande(IdCommande);
