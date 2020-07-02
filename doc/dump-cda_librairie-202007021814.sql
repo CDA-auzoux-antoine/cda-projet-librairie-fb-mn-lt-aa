@@ -188,7 +188,7 @@ DROP TABLE IF EXISTS `livre`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `livre` (
   `id_livre` int(6) NOT NULL AUTO_INCREMENT,
-  `tittre_livre` varchar(50) NOT NULL,
+  `titre_livre` varchar(50) NOT NULL,
   `auteur_livre` varchar(50) DEFAULT NULL,
   `nombreDePages_livre` int(4) DEFAULT NULL,
   `Genre_livre` varchar(50) DEFAULT NULL,
@@ -221,4 +221,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-02 17:41:59
+-- Dump completed on 2020-07-02 18:14:30
