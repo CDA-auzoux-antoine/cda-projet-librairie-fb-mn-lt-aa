@@ -17,27 +17,8 @@ public class CompteImp<T> implements IDao<T> {
 
 	@Override
 	public <E> T save(E e) {
-		String query = "select * from " + ((Compte) e).getType().getType()
-				+ " where compte_login_compte = (select login_compte from compte where login_compte =? and password_compte=?);";
-		try {
-			PreparedStatement ps = null;
-			ps = c.prepareStatement(query);
-			ps.setString(1, ((Compte) e).getLogin());
-			ps.setString(2, ((Compte) e).getPassword());
-			ResultSet rs = ps.executeQuery();
-			while (rs.next()) {
-				if (((Compte) e).getType().equals(TypeDeCompte.CLIENT)) {
-					if (rs.getBoolean(TypeDeCompte.ACTIVED.getType())) {
-						return (T) new Client(rs.getInt(1), rs.getString(2), rs.getString(2), rs.getInt(4), (Compte) e);
-					}
-				} else if (((Compte) e).getType().equals(TypeDeCompte.LIBRAIRE)) {
-					return (T) new Libraire(rs.getInt(1), rs.getString(2), rs.getString(2), (Compte) e);
-				}
-			}
-		} catch (SQLException ex) {
-			ex.printStackTrace();
-		}
 		return null;
+
 	}
 
 	@Override
@@ -62,10 +43,8 @@ public class CompteImp<T> implements IDao<T> {
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				if (((Compte) compte).getType().equals(TypeDeCompte.CLIENT)) {
-					if (rs.getBoolean(TypeDeCompte.ACTIVED.getType())) {
-						return (T) new Client(rs.getInt(1), rs.getString(2), rs.getString(2), rs.getInt(4),
-								(Compte) compte);
-					}
+					return (T) new Client(rs.getInt(1), rs.getString(2), rs.getString(2), rs.getInt(4), (Compte) compte,
+							rs.getBoolean(TypeDeCompte.ACTIVED.getType()));
 				} else if (((Compte) compte).getType().equals(TypeDeCompte.LIBRAIRE)) {
 					return (T) new Libraire(rs.getInt(1), rs.getString(2), rs.getString(2), (Compte) compte);
 				}

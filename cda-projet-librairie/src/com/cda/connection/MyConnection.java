@@ -23,7 +23,6 @@ public class MyConnection {// nous retourne la connexion à la bdd
 	public static Connection getConnexion() {
 		if (connexion == null) {
 			new MyConnection();
-
 		}
 		return connexion;
 	}

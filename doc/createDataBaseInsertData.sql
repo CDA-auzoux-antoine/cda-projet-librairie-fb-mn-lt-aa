@@ -16,10 +16,11 @@ create table livre (id_livre int(6) auto_increment not null,
 titre_livre varchar(50) not null,
 auteur_livre varchar(50),
 nombreDePages_livre int(4),
-Genre_livre varchar(50),
+genre_livre varchar(50),
 prix_livre decimal(5,2) not null,
 quantite int(3),
 primary key (id_livre)) ENGINE = InnoDB;
+
 
 create table client (id_client int(6) auto_increment not null,
 nom_client varchar(50) not null,
@@ -302,3 +303,12 @@ select * from stock;
 select * from client c where compte_login_compte ='';
 
 select * from livre l ;
+
+
+select * from compte c where login_Compte = "client";
+
+
+
+
+
+select md5("client");
