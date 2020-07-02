@@ -4,13 +4,14 @@ import java.util.List;
 
 public interface IDao<T> {
 
-	T save(T t);
+	<E> T save(E t);
 
 	void remove(T t);
 
-	T update(T t);
+	<E> T update(E t);
 
 	T findById(int id);
 
 	List<T> getAll();
+
 }
