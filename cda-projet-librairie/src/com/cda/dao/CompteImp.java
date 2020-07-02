@@ -1,39 +1,62 @@
 package com.cda.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
+import com.cda.connection.MyConnection;
+import com.cda.constant.TypeDeCompte;
+import com.cda.models.Client;
 import com.cda.models.Compte;
+import com.cda.models.Libraire;
 
-public class CompteImp implements IDao<Compte> {
+public class CompteImp<T> implements IDao<T> {
+	private static Connection c = MyConnection.getConnexion();
 
 	@Override
-	public Compte save(Compte t) {
-		// TODO Auto-generated method stub
+	public <E> T save(E e) {
+		return null;
+
+	}
+
+	@Override
+	public void remove(T compte) {
+
+	}
+
+	@Override
+	public <E> T update(E adresse) {
 		return null;
 	}
 
 	@Override
-	public void remove(Compte t) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public Compte update(Compte t) {
-		// TODO Auto-generated method stub
+	public <E> T find(E compte) {
+		String query = "select * from " + ((Compte) compte).getType().getType()
+				+ " where compte_login_compte = (select login_compte from compte where login_compte =? and password_compte=?);";
+		try {
+			PreparedStatement ps = null;
+			ps = c.prepareStatement(query);
+			ps.setString(1, ((Compte) compte).getLogin());
+			ps.setString(2, ((Compte) compte).getPassword());
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				if (((Compte) compte).getType().equals(TypeDeCompte.CLIENT)) {
+					return (T) new Client(rs.getInt(1), rs.getString(2), rs.getString(2), rs.getInt(4), (Compte) compte,
+							rs.getBoolean(TypeDeCompte.ACTIVED.getType()));
+				} else if (((Compte) compte).getType().equals(TypeDeCompte.LIBRAIRE)) {
+					return (T) new Libraire(rs.getInt(1), rs.getString(2), rs.getString(2), (Compte) compte);
+				}
+			}
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
 		return null;
 	}
 
 	@Override
-	public Compte findById(int id) {
-		// TODO Auto-generated method stub
+	public List<T> getAll() {
 		return null;
 	}
-
-	@Override
-	public List<Compte> getAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

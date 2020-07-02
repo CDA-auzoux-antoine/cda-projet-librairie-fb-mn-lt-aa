@@ -7,25 +7,25 @@ import com.cda.models.Commande;
 public class CommandeImp implements IDao<Commande> {
 
 	@Override
-	public Commande save(Commande t) {
+	public <E> Commande save(E e) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void remove(Commande t) {
+	public void remove(Commande e) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public Commande update(Commande t) {
+	public <E> Commande update(E e) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Commande findById(int id) {
+	public <E> Commande find(E e) {
 		// TODO Auto-generated method stub
 		return null;
 	}
