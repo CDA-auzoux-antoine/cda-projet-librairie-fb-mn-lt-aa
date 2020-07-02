@@ -17,7 +17,7 @@ public class Program {
 			if (client.isActived()) {
 				System.out.println("coucou " + client.getNom() + " " + client.getPrenom());
 			} else {
-				System.out.println("Compte innactif");
+				System.out.println("Compte inactif");
 			}
 		} else {
 			System.out.println("login ou password incorrect");
