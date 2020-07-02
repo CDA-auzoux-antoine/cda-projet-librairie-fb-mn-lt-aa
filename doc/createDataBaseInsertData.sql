@@ -18,7 +18,6 @@ tittre_livre varchar(50) not null,
 auteur_livre varchar(50),
 nombreDePages_livre int(4),
 Genre_livre varchar(50),
-quantite int(3),
 prix_livre decimal(5,2) not null,
 primary key (id_livre)) ENGINE = InnoDB;
 
@@ -48,6 +47,11 @@ quantite int(3) not null ,
 prixUnitaire  decimal(5,2)
 ) ENGINE = InnoDB;
 
+create table stock(
+id_livre int(6),
+quantite int(3)
+) ENGINE = InnoDB;
+
 
 alter table Libraire add constraint FK_Libraire_compte_login_compte foreign key (compte_login_compte) references Compte (login_Compte);
 
@@ -60,7 +64,6 @@ alter table Commande add constraint FK_Commande_id_client foreign key (id_client
 select * from detailsCommande;
 
 alter table detailsCommande add constraint FK_detailsCommande_id_commande_Commande foreign key (id_commande_Commande) references commande (id_commande_Commande);
-
 
 
 
@@ -301,44 +304,44 @@ insert into client (nom_client, prenom_client, id_adresse_adresse, compte_login_
 
 
 #livre
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Dennis the Menace Christmas A" , "Mougenel","265 ","Comedy" ,30 ,8.39);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("King of Germany" , "Fahrenbach","278 ","Comedy" ,860 ,1.17);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Philadelphia Experiment II", "Longbone","276 ","Action|Adventure|Sci-Fi",840 ,7.86);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Curse of the Golden Flower Man cheng ", "Causon","200 ","Action|Drama" ,430 ,10.29);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Skin Game" , "Remer" ,"227 ","Comedy|Romance|Western" ,590 ,6.64);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Absolon" , "Norgate" ,"253 ","Action|Sci-Fi|Thriller" ,720 ,5.60);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("10 Items or Less", "Lamblin" ,"250 ","Comedy|Drama|Romance" ,090 ,7.36);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Satan Bug ", "Priestley" ,"222 ","Sci-Fi|Thriller",950 ,8.60);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Legend of the Village Warriors Bangrajan", "Caseri","256 ","Action|Drama|War" ,220 ,1.53);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("M" , "Blagburn","252 ","Crime|Drama|Film-Noir|Thriller" ,870 ,1.10);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Hamlet,Prince of Denmark", "Chaffe","280 ","Drama",910 ,3.69);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Big Stan", "MacDermott","203 ","Comedy" ,870 ,7.78);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Hotel Pacific Zaklete rewiry", "Bernhard","257 ","Drama",970 ,4.19);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("West of Memphis" , "Gors","267 ","Documentary",390 ,9.58);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Righteous Kill", "Kingman" ,"299 ","Crime|Mystery|Thriller" ,300 ,7.24);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Celestial Wives of the Meadow Mari " , "Huyton","218 ","Drama",570 ,1.58);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Benny's Video", "MacCague","279 ","Drama|Horror" ,490 ,8.96);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Rosetta" , "Larderot","265 ","Drama",290 ,5.93);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Uncommon Valor", "Hamly" ,"260 ","Action|War" ,640 ,4.39);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Stealth" , "Kildea","242 ","Action|Adventure|Sci-Fi|Thriller" ,670 ,6.95);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Boom!" , "Lumm","292 ","Drama",310 ,8.40);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Equinox" , "Beades","257 ","Drama|Mystery|Thriller" ,210 ,7.95);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Come Blow Your Horn" , "Witherup","278 ","Comedy" ,740 ,4.43);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Demon Lover Diary" , "McCaghan","274 ","Documentary",020 ,10.52);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Heart of America", "Dodshon" ,"297 ","Drama",780 ,9.24);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Bullfighter and the Lady", "Middiff" ,"217 ","Action|Drama|Romance" ,590 ,8.38);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Affair of Love,An Liaison pornographique,Une", "Stoggell","221 ","Drama|Romance",000 ,5.55);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Hairdresser's Husband,The Le mari de la coiffeuse", "Amorine" ,"234 ","Comedy|Drama|Romance" ,690 ,1.94);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Running Free", "Valenta" ,"249 ","Adventure|Children|Drama" ,760 ,5.86);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Quick Change", "Richardes" ,"293 ","Comedy|Crime" ,860 ,9.10);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Frontier of the Dawn La frontière de l'aube", "Ambrosoli" ,"204 ","Drama",970 ,1.36);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Man with One Red Shoe ", "Levicount" ,"249 ","Comedy|Thriller",870 ,2.42);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Sweeney Todd: The Demon Barber of Fleet Street", "Rozec" ,"289 ","Crime|Horror" ,650 ,7.83);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Most Dangerous Game ", "Vasilmanov","288 ","Adventure|Mystery|Thriller" ,910 ,4.16);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Repossessed" , "MacKniely" ,"262 ","Comedy" ,680 ,4.12);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Baby Mama" , "Stidever","202 ","Comedy" ,790 ,3.31);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("See the Sea" , "Hurrell" ,"201 ","Thriller" ,910 ,9.19);
-insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Changing Habits" , "Shelly","256 ","Comedy|Drama" ,740 ,6.02);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Dennis the Menace Christmas A" , "Mougenel","265 ","Comedy" ,8.39);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("King of Germany" , "Fahrenbach","278 ","Comedy" ,1.17);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Philadelphia Experiment II", "Longbone","276 ","Action|Adventure|Sci-Fi",7.86);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Curse of the Golden Flower Man cheng ", "Causon","200 ","Action|Drama" ,10.29);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Skin Game" , "Remer" ,"227 ","Comedy|Romance|Western" ,6.64);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Absolon" , "Norgate" ,"253 ","Action|Sci-Fi|Thriller" ,5.60);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("10 Items or Less", "Lamblin" ,"250 ","Comedy|Drama|Romance" ,7.36);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Satan Bug ", "Priestley" ,"222 ","Sci-Fi|Thriller",8.60);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Legend of the Village Warriors Bangrajan", "Caseri","256 ","Action|Drama|War" ,1.53);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("M" , "Blagburn","252 ","Crime|Drama|Film-Noir|Thriller" ,1.10);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Hamlet,Prince of Denmark", "Chaffe","280 ","Drama",3.69);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Big Stan", "MacDermott","203 ","Comedy" ,7.78);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Hotel Pacific Zaklete rewiry", "Bernhard","257 ","Drama",4.19);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("West of Memphis" , "Gors","267 ","Documentary",9.58);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Righteous Kill", "Kingman" ,"299 ","Crime|Mystery|Thriller" ,7.24);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Celestial Wives of the Meadow Mari " , "Huyton","218 ","Drama",1.58);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Benny's Video", "MacCague","279 ","Drama|Horror" ,8.96);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Rosetta" , "Larderot","265 ","Drama",5.93);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Uncommon Valor", "Hamly" ,"260 ","Action|War" ,4.39);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Stealth" , "Kildea","242 ","Action|Adventure|Sci-Fi|Thriller" ,6.95);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Boom!" , "Lumm","292 ","Drama",8.40);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Equinox" , "Beades","257 ","Drama|Mystery|Thriller" ,7.95);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Come Blow Your Horn" , "Witherup","278 ","Comedy" ,4.43);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Demon Lover Diary" , "McCaghan","274 ","Documentary",10.52);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Heart of America", "Dodshon" ,"297 ","Drama",9.24);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Bullfighter and the Lady", "Middiff" ,"217 ","Action|Drama|Romance" ,8.38);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Affair of Love,An Liaison pornographique,Une", "Stoggell","221 ","Drama|Romance",5.55);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Hairdresser's Husband,The Le mari de la coiffeuse", "Amorine" ,"234 ","Comedy|Drama|Romance" ,1.94);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Running Free", "Valenta" ,"249 ","Adventure|Children|Drama" ,5.86);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Quick Change", "Richardes" ,"293 ","Comedy|Crime" ,9.10);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Frontier of the Dawn La frontière de l'aube", "Ambrosoli" ,"204 ","Drama",1.36);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Man with One Red Shoe ", "Levicount" ,"249 ","Comedy|Thriller",2.42);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Sweeney Todd: The Demon Barber of Fleet Street", "Rozec" ,"289 ","Crime|Horror" ,7.83);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Most Dangerous Game ", "Vasilmanov","288 ","Adventure|Mystery|Thriller" ,4.16);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Repossessed" , "MacKniely" ,"262 ","Comedy" ,4.12);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Baby Mama" , "Stidever","202 ","Comedy" ,3.31);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("See the Sea" , "Hurrell" ,"201 ","Thriller" ,9.19);
+insert into livre ( tittre_livre, auteur_livre, nombreDePages_livre, Genre_livre, prix_livre) values ("Changing Habits" , "Shelly","256 ","Comedy|Drama" ,6.02);
 
 /*
 select * from livre;

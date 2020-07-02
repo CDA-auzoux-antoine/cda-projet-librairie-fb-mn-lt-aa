@@ -16,7 +16,7 @@ public class StockImp implements IDao<Stock> {
 	public <E> Stock save(E t) {
 		if (c != null && t != null) {
 			try {
-				String request = "INSERT INTO stock (IdLivre, Quantite) VALUES (?,?)";
+				String request = "INSERT INTO stock (id_livre, Quantite) VALUES (?,?)";
 				PreparedStatement ps = null;
 				ps = c.prepareStatement(request);
 				ps.setInt(1, ((Livre) t).getIdentifiant());
