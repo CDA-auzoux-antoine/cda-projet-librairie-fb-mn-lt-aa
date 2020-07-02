@@ -16,40 +16,21 @@ public class CompteImp<T> implements IDao<T> {
 	private static Connection c = MyConnection.getConnexion();
 
 	@Override
-<<<<<<< HEAD
-	public <E> Compte save(E e) {
-		// TODO Auto-generated method stub
-=======
 	public <E> T save(E e) {
->>>>>>> dev
+
 		return null;
 	}
 
 	@Override
-<<<<<<< HEAD
-	public void remove(Compte e) {
-		// TODO Auto-generated method stub
-=======
 	public void remove(T comte) {
->>>>>>> dev
-
 	}
 
 	@Override
-<<<<<<< HEAD
-	public <E> Compte update(E e) {
-		// TODO Auto-generated method stub
-=======
 	public <E> T update(E adresse) {
->>>>>>> dev
 		return null;
 	}
 
 	@Override
-<<<<<<< HEAD
-	public <E> Compte find(E e) {
-		// TODO Auto-generated method stub
-=======
 	public <E> T find(E compte) {
 		String query = "select * from " + ((Compte) compte).getType().getType()
 				+ " where compte_login_compte = (select login_compte from compte where login_compte =? and password_compte=?);";
@@ -72,17 +53,11 @@ public class CompteImp<T> implements IDao<T> {
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
->>>>>>> dev
 		return null;
 	}
 
 	@Override
-<<<<<<< HEAD
-	public List<Compte> getAll() {
-		// TODO Auto-generated method stub
-=======
 	public List<T> getAll() {
->>>>>>> dev
 		return null;
 	}
 }

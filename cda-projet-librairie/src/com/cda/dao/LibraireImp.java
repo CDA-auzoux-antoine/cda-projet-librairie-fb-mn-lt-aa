@@ -7,7 +7,6 @@ import com.cda.models.Libraire;
 public class LibraireImp implements IDao<Libraire> {
 
 	@Override
-<<<<<<< HEAD
 	public <E> Libraire save(E e) {
 		// TODO Auto-generated method stub
 		return null;
@@ -22,38 +21,18 @@ public class LibraireImp implements IDao<Libraire> {
 	@Override
 	public <E> Libraire update(E e) {
 		// TODO Auto-generated method stub
-=======
-	public void remove(Libraire e) {
+		return null;
+	}
+
+	@Override
+	public <E> Libraire find(E e) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public List<Libraire> getAll() {
-		return null;
-	}
-
-	@Override
-	public <E> Libraire save(E e) {
->>>>>>> dev
-		return null;
-	}
-
-	@Override
-<<<<<<< HEAD
-	public <E> Libraire find(E e) {
 		// TODO Auto-generated method stub
-=======
-	public <E> Libraire update(E e) {
->>>>>>> dev
-		return null;
-	}
-
-	@Override
-<<<<<<< HEAD
-	public List<Libraire> getAll() {
-		// TODO Auto-generated method stub
-=======
-	public <E> Libraire find(E e) {
->>>>>>> dev
 		return null;
 	}
 
