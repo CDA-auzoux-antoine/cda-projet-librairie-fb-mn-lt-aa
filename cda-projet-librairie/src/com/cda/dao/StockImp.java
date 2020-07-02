@@ -13,17 +13,17 @@ public class StockImp implements IDao<Stock> {
 	private static Connection c = MyConnection.getConnexion();
 
 	@Override
-	public <E> Stock save(E t) {
-		if (c != null && t != null) {
+	public <E> Stock save(E e) {
+		if (c != null && e != null) {
 			try {
 				String request = "INSERT INTO stock (id_livre, Quantite) VALUES (?,?)";
 				PreparedStatement ps = null;
 				ps = c.prepareStatement(request);
-				ps.setInt(1, ((Livre) t).getIdentifiant());
-				ps.setInt(2, ((Livre) t).getQuantite());
+				ps.setInt(1, ((Livre) e).getIdentifiant());
+				ps.setInt(2, ((Livre) e).getQuantite());
 				ps.executeUpdate();
-			} catch (SQLException e) {
-				e.printStackTrace();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
 			}
 		} else {
 			System.out.println("Entrée impossible.");
@@ -32,23 +32,22 @@ public class StockImp implements IDao<Stock> {
 	}
 
 	@Override
-	public <E> Stock update(E t) {
-		// TODO Auto-generated method stub
+	public <E> Stock update(E e) {
 		return null;
 	}
 
 	@Override
-	public void remove(Stock t) {
+	public void remove(Stock e) {
 
-	}
-
-	@Override
-	public Stock findById(int id) {
-		return null;
 	}
 
 	@Override
 	public List<Stock> getAll() {
+		return null;
+	}
+
+	@Override
+	public <E> Stock find(E e) {
 		return null;
 	}
 

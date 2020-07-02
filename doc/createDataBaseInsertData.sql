@@ -1,5 +1,4 @@
 create database cda_librairie;
-
 use cda_librairie;
 
 create table Compte (login_Compte varchar(100) UNIQUE  not null,
@@ -26,6 +25,7 @@ nom_client varchar(50) not null,
 prenom_client varchar(50) not null,
 id_adresse_adresse int(6) not null,
 compte_login_compte varchar(100) not null,
+isActive Bool DEFAULT false,
 primary key (id_client)) ENGINE = InnoDB;
 
 create table adresse (id_adresse_adresse int(10) auto_increment not null,
@@ -61,70 +61,66 @@ alter table client add constraint FK_client_compte_login_compte foreign key (com
 
 alter table Commande add constraint FK_Commande_id_client foreign key (id_client) references client (id_client);
 
-select * from detailsCommande;
 
 alter table detailsCommande add constraint FK_detailsCommande_id_commande_Commande foreign key (id_commande_Commande) references commande (id_commande_Commande);
 
 
 
+insert into compte (login_Compte, password_Compte) values ('client','62608e08adc29a8d6dbc9754e659f125');
+insert into compte (login_Compte, password_Compte) values ('Antonia','84198b8a17ab6f361639a3adb1cc88b2');
+insert into compte (login_Compte, password_Compte) values ('Ian','3e1e81d56500057817ea2acce79a6664');
+insert into compte (login_Compte, password_Compte) values ('Francesco','67fb0692f6f7aa3c04968c0c1e4dbcb4');
+insert into compte (login_Compte, password_Compte) values ('Ava','4985671f0cd0929bc6ab3c5d4d4dab4d');
+insert into compte (login_Compte, password_Compte) values ('Annabell','0e566e7d403c1f5a2057c04bc2f3acff');
+insert into compte (login_Compte, password_Compte) values ('Syd','b1dbc28b915523e608342f93850399c8');
+insert into compte (login_Compte, password_Compte) values ('Ursala','7bf594e2b6be4f2cddf030529f1d13f1');
+insert into compte (login_Compte, password_Compte) values ('Talia','2712dc6dca41c044f184543ca522561e');
+insert into compte (login_Compte, password_Compte) values ('Goddard','2a6ae60c695d3fd44ea0cb5c5ccfe1cb');
+insert into compte (login_Compte, password_Compte) values ('Gale','295af79b7b2deab9298ea80dba4fcf80');
+insert into compte (login_Compte, password_Compte) values ('Lefty','6b2b61f197441ea9a7a415a2898c5c4d');
+insert into compte (login_Compte, password_Compte) values ('Elane','ea81bb0019e01dad4f04418aea9768b0');
+insert into compte (login_Compte, password_Compte) values ('Georgianna','4649b729c77b0b7b86683245af803aa7');
+insert into compte (login_Compte, password_Compte) values ('Doria','9396d8764a94054c678dd37734781f34');
+insert into compte (login_Compte, password_Compte) values ('Gaile','489cccd63b2c0b0f95cd9633a5345937');
+insert into compte (login_Compte, password_Compte) values ('Terencio','1f9aac44552f8a6136977491ac0950a9');
+insert into compte (login_Compte, password_Compte) values ('Corbett','d12d66832c79f7341dcd6435673853ad');
+insert into compte (login_Compte, password_Compte) values ('Maximilian','1df2f6639f8bea13a4e65c230c4fa000');
+insert into compte (login_Compte, password_Compte) values ('Alfy','5dbb6d9aaa84892d7d0c10d314d12d39');
+insert into compte (login_Compte, password_Compte) values ('Audra','46f63be17853f1e6e6ca4a06ceb5601a');
+insert into compte (login_Compte, password_Compte) values ('Neron','2ae1ab4433d6ef2eb26cedf9d1699a19');
+insert into compte (login_Compte, password_Compte) values ('Aymer','9ad112ad10d3b47283de6da2d98cc98c');
+insert into compte (login_Compte, password_Compte) values ('Sheri','260bf9f903e5c4196947a319461760e2');
+insert into compte (login_Compte, password_Compte) values ('Arabelle','a5a743964ae7ee4b907b4f95d38ef8ea');
+insert into compte (login_Compte, password_Compte) values ('Christel','9c607315b22f1ce38e87558f7c5897ba');
+insert into compte (login_Compte, password_Compte) values ('Christine','c317e24671d726f44a536689a0d44104');
+insert into compte (login_Compte, password_Compte) values ('Mack','10b0e6445ad46e7121a2dc109f0d40fc');
+insert into compte (login_Compte, password_Compte) values ('Annnora','6fad932085f7490b628b760e189317a5');
+insert into compte (login_Compte, password_Compte) values ('Katine','e87c402ad2e2db6795f51223dbdd3e23');
+insert into compte (login_Compte, password_Compte) values ('Brita','a719b56e16e2f2deac769c780217c9a4');
+insert into compte (login_Compte, password_Compte) values ('Jessey','ee4880d4a384acb0c9ab217efcd86b23');
+insert into compte (login_Compte, password_Compte) values ('Kimberley','70cb66fc48f15c95343bd7f5cf32a9a4');
+insert into compte (login_Compte, password_Compte) values ('Verile','f79127d2e90d88ca85de3311f1bb2262');
+insert into compte (login_Compte, password_Compte) values ('Elayne','1c9f5d3f06274dfb437f94f27e963934');
+insert into compte (login_Compte, password_Compte) values ('Shari','96c8933201ab059c46f04366b1889821');
+insert into compte (login_Compte, password_Compte) values ('Julieta','ab1459c7e61b4b10e29e72ae1aa0a4e1');
+insert into compte (login_Compte, password_Compte) values ('Rod','abcc3ee69fd00960af12fec0489f3043');
+insert into compte (login_Compte, password_Compte) values ('Man','08e4915ae54137052ac6a23c7fdd183f');
+insert into compte (login_Compte, password_Compte) values ('Prentiss','8174ca01b2c545bf132f6cce6bb38f8d');
+insert into compte (login_Compte, password_Compte) values ('Belle','f001fa191cf90ab1d1336628b6c46101');
+insert into compte (login_Compte, password_Compte) values ('Diann','720c78bbaf761dbc3caa8c03fe907266');
+insert into compte (login_Compte, password_Compte) values ('Agata','a3c76b514b5597f2b8360a48d9eec5ae');
+insert into compte (login_Compte, password_Compte) values ('Clarey','61189ab7f3787739a9de15e8231f2973');
+insert into compte (login_Compte, password_Compte) values ('Baron','645df83bf1b728a38c53a69178acebf6');
+insert into compte (login_Compte, password_Compte) values ('Elonore','ba43c2083f146d693aa732f5e44840ac');
+insert into compte (login_Compte, password_Compte) values ('Rogerio','fbc0d1e74574284a7b01481833c8545b');
+insert into compte (login_Compte, password_Compte) values ('Essa','789e16e1c441b0dc9c6bf45d2c41dc01');
+insert into compte (login_Compte, password_Compte) values ('Tressa','7edd93021be4d5560d060689d5b8a515');
+insert into compte (login_Compte, password_Compte) values ('Morlee','779989a90de7fd7db76eaf6212f0ffe0');-
+insert into compte (login_Compte, password_Compte) values ('mohamed','309cd3800aacbd003ac36199fa537295');
+insert into compte (login_Compte, password_Compte) values ('loreen','1483efba881726cfa09f1451f4dbbbb5');
+insert into compte (login_Compte, password_Compte) values ('antoine','0e5091a25295e44fea9957638527301f');
+insert into compte (login_Compte, password_Compte) values ('fethi','c7a75ed80463fa35c64e78dcf28312f0');
 
-insert into compte (login_Compte, password_Compte) values ('Craig', 'zXgNCmCOjJ');
-insert into compte (login_Compte, password_Compte) values ('Antonia', '086up7LC');
-insert into compte (login_Compte, password_Compte) values ('Ian', 'jcHqpU5kmNo');
-insert into compte (login_Compte, password_Compte) values ('Francesco', 'kNr5m6opTP');
-insert into compte (login_Compte, password_Compte) values ('Ava', 'LMmpaZAtydb');
-insert into compte (login_Compte, password_Compte) values ('Annabell', 'X53j14');
-insert into compte (login_Compte, password_Compte) values ('Syd', '5PUY6TkLZ2rq');
-insert into compte (login_Compte, password_Compte) values ('Ursala', 'olsZXjW8B');
-insert into compte (login_Compte, password_Compte) values ('Talia', 'rWHmXmZpFzU');
-insert into compte (login_Compte, password_Compte) values ('Goddard', 'O1OdyCykKg');
-insert into compte (login_Compte, password_Compte) values ('Gale', 'VND8ZGyI4loq');
-insert into compte (login_Compte, password_Compte) values ('Lefty', '2xmce9Rau');
-insert into compte (login_Compte, password_Compte) values ('Elane', 'hL8KR9g9ST');
-insert into compte (login_Compte, password_Compte) values ('Georgianna', 'iiJxGLr3lE');
-insert into compte (login_Compte, password_Compte) values ('Doria', 'NM2uphO4SOI');
-insert into compte (login_Compte, password_Compte) values ('Gaile', '4zMCcaNeU');
-insert into compte (login_Compte, password_Compte) values ('Terencio', 'XlxHfP0ZE');
-insert into compte (login_Compte, password_Compte) values ('Corbett', 'oaPXA23');
-insert into compte (login_Compte, password_Compte) values ('Maximilian', '9owDrGMmog');
-insert into compte (login_Compte, password_Compte) values ('Alfy', 'p3neAKk40O');
-insert into compte (login_Compte, password_Compte) values ('Audra', 'OsBIhrno0a');
-insert into compte (login_Compte, password_Compte) values ('Neron', 'tk97fLt');
-insert into compte (login_Compte, password_Compte) values ('Aymer', 'NKI3KkCoY');
-insert into compte (login_Compte, password_Compte) values ('Sheri', 'ur0MMG');
-insert into compte (login_Compte, password_Compte) values ('Arabelle', 'Pu6IE2i');
-insert into compte (login_Compte, password_Compte) values ('Christel', 'UtEphb8f');
-insert into compte (login_Compte, password_Compte) values ('Christine', 'bwFp49AB');
-insert into compte (login_Compte, password_Compte) values ('Mack', 'Gkysy5fFIMv');
-insert into compte (login_Compte, password_Compte) values ('Annnora', 'YW4LGFR6x');
-insert into compte (login_Compte, password_Compte) values ('Katine', 'iTfS2ya8MOJ');
-insert into compte (login_Compte, password_Compte) values ('Brita', 'LPQSNU8YOba');
-insert into compte (login_Compte, password_Compte) values ('Jessey', 'M4V4lX');
-insert into compte (login_Compte, password_Compte) values ('Kimberley', '8wfA6ZRxuPMf');
-insert into compte (login_Compte, password_Compte) values ('Verile', 'OMHoRCrNHBM');
-insert into compte (login_Compte, password_Compte) values ('Elayne', 'NKCryxMMf');
-insert into compte (login_Compte, password_Compte) values ('Shari', 'eBRjFhcEtsL');
-insert into compte (login_Compte, password_Compte) values ('Julieta', '6Ja4zZz4');
-insert into compte (login_Compte, password_Compte) values ('Rod', '1fIJjo7r');
-insert into compte (login_Compte, password_Compte) values ('Man', 'hL0M1Lr');
-insert into compte (login_Compte, password_Compte) values ('Prentiss', 'riOwJ17xH');
-insert into compte (login_Compte, password_Compte) values ('Belle', 'apGGkdN');
-insert into compte (login_Compte, password_Compte) values ('Diann', 'tJWw0mcb1mYM');
-insert into compte (login_Compte, password_Compte) values ('Agata', '0jFItq');
-insert into compte (login_Compte, password_Compte) values ('Clarey', 'MeczObBh');
-insert into compte (login_Compte, password_Compte) values ('Baron', '55c27PQ');
-insert into compte (login_Compte, password_Compte) values ('Elonore', 'NyEJYoxn');
-insert into compte (login_Compte, password_Compte) values ('Rogerio', '3LypQT2XOif5');
-insert into compte (login_Compte, password_Compte) values ('Essa', 'ZxTg8Kl');
-insert into compte (login_Compte, password_Compte) values ('Tressa', 'Ox1G8f5YkH');
-insert into compte (login_Compte, password_Compte) values ('Morlee', '8llUIdQubLE');
-
-insert into compte (login_Compte, password_Compte) values ('mohamed', 'mohamed');
-insert into compte (login_Compte, password_Compte) values ('loreen', 'loreen');
-insert into compte (login_Compte, password_Compte) values ('antoine', 'antoine');
-insert into compte (login_Compte, password_Compte) values ('fethi', 'fethi');
-
-select * from compte;
 
 #client 
 
@@ -137,62 +133,6 @@ insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values
 
 
 #libraire
-/*
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Brit', 'Brayford', 'Craig');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Wes', 'Kemitt','Antonia' );
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Wenona', 'Stille', 'Ian');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Bobbie', 'Sadgrove', 'Francesco');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Hulda', 'Bullman', 'Ava');
-
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Conrad', 'Sandaver', 'Annabell');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Adams', 'Spracklin', 'Syd');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Wilhelm', 'Krinks','Ursala' );
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Anne-corinne', 'Ansteys','Talia' );
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Worthington', 'Larne', 'Goddard');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Lira', 'Venart', 'Gale');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Sherill', 'Thirst','Lefty' );
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Aili', 'Pedrozzi', 'Elane');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Teodoro', 'Pennycord', 'Georgianna');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Eddie', 'Feighney','Doria' );
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Gery', 'Hengoed','Gaile' );
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Arlie', 'Scougal', 'Terencio');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Ardys', 'Book','Corbett' );
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Bradan', 'Tomasicchio','Maximilian' );
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Sidonia', 'McGlaud', 'Alfy');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Rosco', 'Pickerin','Audra' );
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Melicent', 'Hurdman','Neron' );
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Duncan', 'Gipson', 'Aymer');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Rici', 'MacKee', 'Sheri');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Nanette', 'Dahlberg','Arabelle' );
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Gustaf', 'Elliss', 'Christel');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Yorke', 'Spellacy','Christine' );
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Lyn', 'Gateman', 'Mack');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Anselm', 'Presslee', 'Annnora');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Vonny', 'Murtimer','Katine' );
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Petrina', 'Murricanes','Brita' );
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Serene', 'Tyreman','Jessey' );
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Odelle', 'Bernt','Kimberley' );
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Lani', 'Mallan', 'Verile');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Eyde', 'Labet','Elayne' );
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Jackquelin', 'Heis', 'Shari');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Brynn', 'Mar', 'Julieta');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Seamus', 'Patron', 'Rod');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Nikos', 'Hartell', 'Man');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Pamelina', 'Brigge', 'Prentiss');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Sydney', 'Dupree', 'Belle');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Ephrayim', 'Puddin', 'Diann');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Padget', 'Youster','Agata' );
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Thor', 'Howsego','Clarey' );
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Perle', 'Byron', 'Baron');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Sheilakathryn', 'Beining', 'Elonore');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Nannie', 'Brabban','Rogerio' );
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Natalya', 'Trulock', 'Essa');
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Danyette', 'Panting','Tressa' );
-insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values ('Rivy', 'Billam', 'Morlee');
-
-
-select * from Libraire;
-*/
 # adresse
 
 insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 89401, '78552', '7th', 'Dhi as Sufal');
@@ -246,12 +186,11 @@ insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse
 insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 18649, '23', 'Northfield', 'Haikou');
 insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 10437, '6683', 'Shopko', 'Estreito Câmara de Lobos');
 
-select  * from adresse;
 
 
 #client
 
-insert into client (nom_client, prenom_client, id_adresse_adresse, compte_login_compte) values ('Renae', 'Tomaschke', 1,'Craig' );
+insert into client (nom_client, prenom_client, id_adresse_adresse, compte_login_compte) values ('nomClientDansLAdb', 'prenomClientDansLAdb', 1,'client' );
 insert into client (nom_client, prenom_client, id_adresse_adresse, compte_login_compte) values ('Kingsly', 'Montel', 2, 'Antonia');
 insert into client (nom_client, prenom_client, id_adresse_adresse, compte_login_compte) values ('Cleopatra', 'Arnison', 3,'Ian' );
 insert into client (nom_client, prenom_client, id_adresse_adresse, compte_login_compte) values ('Percival', 'Frodsham', 4,'Francesco' );
@@ -357,4 +296,9 @@ select prix_livre from livre where id_livre = 1;
 
 /*
 select * from stock;
-*/s
+*/
+
+
+
+select * from client c where compte_login_compte ='';
+

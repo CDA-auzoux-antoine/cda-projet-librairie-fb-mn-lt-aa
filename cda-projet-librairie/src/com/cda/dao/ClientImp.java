@@ -7,13 +7,25 @@ import com.cda.models.Client;
 public class ClientImp implements IDao<Client> {
 
 	@Override
-	public void remove(Client t) {
+	public <E> Client save(E e) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void remove(Client e) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public Client findById(int id) {
+	public <E> Client update(E e) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E> Client find(E e) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -21,18 +33,6 @@ public class ClientImp implements IDao<Client> {
 	@Override
 	public List<Client> getAll() {
 		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <E> Client save(E t) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <E> Client update(E t) {
-
 		return null;
 	}
 
