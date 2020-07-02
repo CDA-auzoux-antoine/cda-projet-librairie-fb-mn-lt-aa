@@ -1,4 +1,5 @@
 package com.cda.models;
+
 import lombok.Data;
 
 @Data
@@ -11,6 +12,7 @@ public class Livre {
 	private int nbrePage;
 	private int quantite;
 	private int identifiant;
+
 	public Livre(String titre, String type, String genre, String auteur, float prix, int nbrePage) {
 		this.titre = titre;
 		this.type = type;
@@ -18,6 +20,7 @@ public class Livre {
 		this.auteur = auteur;
 		this.prix = prix;
 		this.nbrePage = nbrePage;
+		this.identifiant = 1;
 	}
-	
+
 }

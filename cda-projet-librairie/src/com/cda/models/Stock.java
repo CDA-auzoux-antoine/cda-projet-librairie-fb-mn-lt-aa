@@ -1,12 +1,14 @@
 package com.cda.models;
 
-import java.util.HashMap;
+import lombok.Data;
 
+@Data
 public class Stock {
+	private int idLivre;
+	private int quantites;
 
-	private static HashMap<Integer, Integer> qtyLivre;
-
-	public Stock() {
+	private Stock() {
 
 	}
+
 }
