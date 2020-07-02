@@ -12,7 +12,6 @@ import org.mariadb.jdbc.MariaDbDataSource;
 public class MyDataSourceFactory {
 
 	public static DataSource getMariaDb() {
-
 		Properties properties = new Properties();
 		FileInputStream file = null;
 		MariaDbDataSource mariaDbSource = null;
@@ -26,11 +25,8 @@ public class MyDataSourceFactory {
 			mariaDbSource.setPassword(properties.getProperty("password"));
 
 		} catch (IOException | SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return mariaDbSource;
-
 	}
 }

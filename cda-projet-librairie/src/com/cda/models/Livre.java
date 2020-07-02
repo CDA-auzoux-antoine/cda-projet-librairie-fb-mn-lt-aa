@@ -6,13 +6,14 @@ import lombok.Data;
 public class Livre {
 
 	private String titre;
-	private String type;
+
 	private String genre;
 	private String auteur;
 	private float prix;
 	private int nbrePage;
 
 	private int quantite;
+<<<<<<< HEAD
 	private static int identifiant;//
 
 	public String getTitre() {
@@ -80,12 +81,18 @@ public class Livre {
 	}
 
 	public Livre(String titre, String type, String genre, String auteur, float prix, int nbrePage) {
+=======
+	private int identifiant;
+
+	public Livre(String titre, String genre, String auteur, float prix, int nbrePage, int quantite) {
+
+>>>>>>> dev
 		this.titre = titre;
-		this.type = type;
 		this.genre = genre;
 		this.auteur = auteur;
 		this.prix = prix;
 		this.nbrePage = nbrePage;
+		this.quantite = quantite;
 	}
 
 }

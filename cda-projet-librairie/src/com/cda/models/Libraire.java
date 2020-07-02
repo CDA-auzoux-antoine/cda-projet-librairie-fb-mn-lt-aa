@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Libraire extends Personne {
 
-	public Libraire(String nom, String prenom, Compte compte) {
-		super(nom, prenom, compte);
+	public Libraire(int id, String nom, String prenom, Compte compte) {
+		super(id, nom, prenom, compte);
 	}
 
 	public void validerDemander() {
