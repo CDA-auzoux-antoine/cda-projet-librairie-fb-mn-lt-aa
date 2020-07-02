@@ -48,9 +48,9 @@ prixUnitaire  decimal(5,2)
 ) ENGINE = InnoDB;
 
 create table stock(
-id_livre int(6),
-quantite int(3)
-) ENGINE = InnoDB;
+id_livre int(6) ,
+quantite int(3),
+primary key (id_livre) )ENGINE = InnoDB;
 
 
 alter table Libraire add constraint FK_Libraire_compte_login_compte foreign key (compte_login_compte) references Compte (login_Compte);
@@ -354,3 +354,6 @@ select * from detailsCommande;
 
 select prix_livre from livre where id_livre = 1;
 */
+
+
+select * from stock;
