@@ -17,5 +17,9 @@ public class Program {
 			System.out.println(monlivre);
 
 		}
+		Livre test = (Livre) livre.find(1);
+		test.setQuantite(10);
+		livre.remove(test);
+		livre.update(test);
 	}
 }
