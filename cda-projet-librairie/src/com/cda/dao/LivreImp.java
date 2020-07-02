@@ -13,15 +13,11 @@ import com.cda.models.Livre;
 
 public class LivreImp implements IDao<Livre> {
 
-	private static Connection c;
-
-	public LivreImp() {
-		c = MyConnection.getConnexion();
-	}
+	private static Connection c = MyConnection.getConnexion();;
 
 	@Override
 	public void remove(Livre t) {
-		String request = "delete from livre where id = ?";
+		String request = "delete from livre where id_livre = ?";
 		PreparedStatement ps = null;
 		try {
 			ps = c.prepareStatement(request);
@@ -63,7 +59,7 @@ public class LivreImp implements IDao<Livre> {
 	public <E> Livre save(E e) {
 		if (c != null && e != null) {
 			try {
-				String request = "INSERT INTO livre (tittre_livre,auteur_livre,nombreDePages_livre,Genre_livre, prix_livre,quantite ) VALUES (?,?,?,?,?,?)";
+				String request = "INSERT INTO livre (titre_livre,auteur_livre,nombreDePages_livre,Genre_livre, prix_livre,quantite ) VALUES (?,?,?,?,?,?)";
 				PreparedStatement ps = null;
 				ps = c.prepareStatement(request);
 				ps.setString(1, ((Livre) e).getTitre());
@@ -88,7 +84,25 @@ public class LivreImp implements IDao<Livre> {
 
 	@Override
 	public <E> Livre update(E e) {
-
+		if ((Livre) e != null) {
+			String request = "update livre set titre_livre = ?, auteur_livre = ?, nombreDePages_livre = ?, Genre_livre = ?, prix_livre = ?, quantite = ? where id_livre = ?";
+			PreparedStatement ps = null;
+			try {
+				ps = c.prepareStatement(request);
+				ps.setString(1, ((Livre) e).getTitre());
+				ps.setString(2, ((Livre) e).getAuteur());
+				ps.setInt(3, ((Livre) e).getNbrePage());
+				ps.setString(4, ((Livre) e).getGenre());
+				ps.setFloat(5, ((Livre) e).getPrix());
+				ps.setInt(6, ((Livre) e).getQuantite());
+				ps.setInt(7, ((Livre) e).getIdentifiant());
+				ps.executeUpdate();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		} else {
+			System.out.println("Entrée impossible la personne ne peut etre null");
+		}
 		return null;
 	}
 
