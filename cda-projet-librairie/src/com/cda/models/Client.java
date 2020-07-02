@@ -5,11 +5,11 @@ import lombok.Data;
 @Data
 public class Client extends Personne {
 
-	private Adresse adresse;
+	private int id_adresse;
 
-	public Client(String nom, String prenom, Adresse adresse, Compte compte) {
-		super(nom, prenom, compte);
-		this.adresse = adresse;
+	public Client(int id, String nom, String prenom, int id_adresse, Compte compte) {
+		super(id, nom, prenom, compte);
+		this.id_adresse = id_adresse;
 	}
 
 }
