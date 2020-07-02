@@ -13,6 +13,7 @@ public class StockImp implements IDao<Stock> {
 	private static Connection c = MyConnection.getConnexion();
 
 	@Override
+<<<<<<< HEAD
 	public void remove(Stock t) {
 
 	}
@@ -24,10 +25,25 @@ public class StockImp implements IDao<Stock> {
 
 	@Override
 	public List<Stock> getAll() {
+=======
+	public Stock save(Stock t) {
 		return null;
 	}
 
 	@Override
+	public void remove(Stock t) {
+
+	}
+
+	@Override
+	public Stock update(Stock t) {
+
+>>>>>>> 554b51a78a7bd5fd82bacb2f54c95b4b5f31be31
+		return null;
+	}
+
+	@Override
+<<<<<<< HEAD
 	public <E> Stock save(E t) {
 		if (c != null && t != null) {
 			try {
@@ -43,12 +59,19 @@ public class StockImp implements IDao<Stock> {
 		} else {
 			System.out.println("Entrée impossible.");
 		}
+=======
+	public Stock findById(int id) {
+>>>>>>> 554b51a78a7bd5fd82bacb2f54c95b4b5f31be31
 		return null;
 	}
 
 	@Override
+<<<<<<< HEAD
 	public <E> Stock update(E t) {
 		// TODO Auto-generated method stub
+=======
+	public List<Stock> getAll() {
+>>>>>>> 554b51a78a7bd5fd82bacb2f54c95b4b5f31be31
 		return null;
 	}
 
