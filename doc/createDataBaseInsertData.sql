@@ -355,5 +355,6 @@ select * from detailsCommande;
 select prix_livre from livre where id_livre = 1;
 */
 
-
+/*
 select * from stock;
+*/s
