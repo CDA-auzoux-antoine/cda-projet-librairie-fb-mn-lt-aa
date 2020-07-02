@@ -5,13 +5,25 @@ import java.util.List;
 public class DetailsCommandeImp implements IDao<DetailsCommandeImp> {
 
 	@Override
-	public void remove(DetailsCommandeImp t) {
+	public <E> DetailsCommandeImp save(E e) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void remove(DetailsCommandeImp e) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public DetailsCommandeImp findById(int id) {
+	public <E> DetailsCommandeImp update(E e) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E> DetailsCommandeImp find(E e) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -22,15 +34,4 @@ public class DetailsCommandeImp implements IDao<DetailsCommandeImp> {
 		return null;
 	}
 
-	@Override
-	public <E> DetailsCommandeImp save(E t) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <E> DetailsCommandeImp update(E t) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

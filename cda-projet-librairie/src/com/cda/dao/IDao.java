@@ -3,13 +3,13 @@ package com.cda.dao;
 import java.util.List;
 
 public interface IDao<T> {
-	T save(T t);
+	<E> T save(E e);
 
-	void remove(T personne);
+	void remove(T e);
 
-	T update(T t);
+	<E> T update(E e);
 
-	T findById(int id);
+	<E> T find(E e);
 
 	List<T> getAll();
 
