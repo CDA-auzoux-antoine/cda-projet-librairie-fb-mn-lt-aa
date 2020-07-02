@@ -22,5 +22,9 @@ public class Program {
 		} else {
 			System.out.println("login ou password incorrect");
 		}
+		Livre test = (Livre) livre.find(1);
+		test.setQuantite(10);
+		livre.remove(test);
+		livre.update(test);
 	}
 }
