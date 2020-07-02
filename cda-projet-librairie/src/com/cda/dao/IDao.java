@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface IDao<T> {
 
-	T save(T t);
+	T save(E t);
 
 	void remove(T t);
 
