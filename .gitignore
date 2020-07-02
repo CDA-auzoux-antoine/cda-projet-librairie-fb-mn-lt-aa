@@ -15,8 +15,8 @@ local.properties
 .recommenders
 .project
 .classpath
-.properties
-.properties
+db.properties
+
 
 # External tool builders
 .externalToolBuilders/
