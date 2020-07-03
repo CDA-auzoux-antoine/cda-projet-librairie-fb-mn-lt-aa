@@ -1,16 +1,21 @@
 package com.cda.models;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class Livre {
+
 	private String titre;
 
 	private String genre;
 	private String auteur;
 	private float prix;
 	private int nbrePage;
+
 	private int quantite;
+
 	private int identifiant;
 
 	public Livre(String titre, String genre, String auteur, float prix, int nbrePage, int quantite) {
