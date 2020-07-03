@@ -24,11 +24,9 @@ public class LibraireService {
 
 		Client vclient = pclientimp.find(idClient);// on recupere client de la bdd on le met dans variable vclient dans
 		// java
-
 		vclient.setActived(true);// activé dans java, l'ajouter ensuite dans la bdd avec maintenant le statut
 // true
 		pclientimp.remove(vclient);// le supprimer dans bdd
-
 	}
 
 	public void ajouterLivreStock(LivreImp limp, Livre plivre) {// ajouter, utiliser methhode save

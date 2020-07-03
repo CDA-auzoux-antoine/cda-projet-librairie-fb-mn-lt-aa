@@ -26,7 +26,7 @@ public class Ihm {
 	}
 
 	public static void menuLibraire() {
-		System.out.println("entrée libraire");
+
 	}
 
 	public static void menuInit() {
@@ -59,13 +59,10 @@ public class Ihm {
 	}
 
 	private static void switchMenu() {
-
 		System.out.println("Saisissez Login : ");
 		String login = SCANNER.nextLine();
 		System.out.println("Saissiez Mot de passe : ");
 		String mdp = SCANNER.nextLine();
-<<<<<<< HEAD
-=======
 		System.out.println("Taper 1 pour Client ou 2 pour Libraire");
 		int choix = SCANNER.nextInt();
 		if (choix == 1) {
@@ -86,7 +83,6 @@ public class Ihm {
 				menuLibraire();
 			}
 		}
->>>>>>> Fethi
 
 	}
 
