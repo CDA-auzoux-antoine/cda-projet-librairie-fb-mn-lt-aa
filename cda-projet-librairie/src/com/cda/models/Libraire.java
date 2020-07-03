@@ -1,9 +1,11 @@
 package com.cda.models;
 
-public class Libraire extends Personne {
+import lombok.Data;
 
-	public Libraire(String nom, String prenom) {
-		super(nom, prenom);
+@Data
+public class Libraire extends Personne {// ok pour cette classe, pas d'attribut
+	public Libraire(String nom, String prenom, String pLogin) {
+		super(nom, prenom, pLogin);
 	}
 
 }

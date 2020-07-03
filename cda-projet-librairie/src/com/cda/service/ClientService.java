@@ -154,8 +154,8 @@ public class ClientService {
 
 		if (validationInscription.isEmpty()) {
 
-			new Client(pNom, pPrenom, Adresse.getIdAdresse(), false);
-			new Adresse(Adresse.getIdAdresse() + 1, 0, null, 0, null);
+			new Client(pNom, pPrenom, Adresse.getIdAdresse(), pLogin, false);
+			new Adresse(Adresse.getIdAdresse(), 0, null, 0, null);
 			new Compte(null, null, null);
 			System.out.println("compte créé.");
 		} else {
