@@ -16,4 +16,8 @@ public class Adresse {
 		this.ville = ville;
 	}
 
+	public int getId() {
+		return id;
+	}
+
 }
