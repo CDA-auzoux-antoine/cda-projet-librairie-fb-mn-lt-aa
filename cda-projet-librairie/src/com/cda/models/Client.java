@@ -1,8 +1,12 @@
 package com.cda.models;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Data
+@Getter
+@Setter
 public class Client extends Personne {
 
 	private int id_adresse;
@@ -12,6 +16,7 @@ public class Client extends Personne {
 		super(nom, prenom, login);
 		this.id_adresse = id_adresse;
 		this.isActived = isActived;
+
 	}
 
 }
