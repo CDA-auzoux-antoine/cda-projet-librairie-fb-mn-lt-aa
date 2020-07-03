@@ -15,8 +15,7 @@ local.properties
 .recommenders
 .project
 .classpath
-/ressources
-.properties
+cda-projet-librairie/ressources/db.properties
 
 # External tool builders
 .externalToolBuilders/
