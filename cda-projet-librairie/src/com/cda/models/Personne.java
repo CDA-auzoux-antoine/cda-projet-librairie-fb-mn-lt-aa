@@ -17,10 +17,19 @@ public abstract class Personne {
 
 	private int id;
 
+<<<<<<< HEAD
 	public Personne(String nom, String prenom, String login) {
+=======
+	public Personne(int id, String nom, String prenom, String plogin) {
+>>>>>>> loreen
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
+<<<<<<< HEAD
 		this.login = login;
+=======
+		this.login = plogin;
+
+>>>>>>> loreen
 	}
 }
