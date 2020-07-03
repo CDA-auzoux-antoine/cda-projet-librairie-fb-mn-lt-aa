@@ -42,7 +42,7 @@ public class ClientImp implements IDao<Client> {
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
-				Client vClient = new Client(rs.getString(2), rs.getString(3), rs.getInt(4),
+				Client vClient = new Client(rs.getString(2), rs.getString(3), rs.getInt(4),rs.getString(5),
 						rs.getBoolean(TypeDeCompte.ACTIVED.getType()));
 				vClient.setId(rs.getInt(1));// met le client dans rs: retourne des clolonnes à construire
 				return vClient;
