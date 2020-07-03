@@ -11,7 +11,6 @@ nom_Libraire varchar(50) not null,
 compte_login_compte varchar(100) not null,
 primary key (id_libraire)) ENGINE = InnoDB;
 
-
 create table livre (id_livre int(6) auto_increment not null,
 titre_livre varchar(50) not null,
 auteur_livre varchar(50),
@@ -20,7 +19,6 @@ genre_livre varchar(50),
 prix_livre decimal(5,2) not null,
 quantite int(3),
 primary key (id_livre)) ENGINE = InnoDB;
-
 
 create table client (id_client int(6) auto_increment not null,
 nom_client varchar(50) not null,
@@ -58,7 +56,6 @@ alter table client add constraint FK_client_id_adresse_adresse foreign key (id_a
 alter table client add constraint FK_client_compte_login_compte foreign key (compte_login_compte) references Compte (login_Compte);
 
 alter table Commande add constraint FK_Commande_id_client foreign key (id_client) references client (id_client);
-
 
 alter table detailsCommande add constraint FK_detailsCommande_id_commande_Commande foreign key (id_commande_Commande) references commande (id_commande_Commande);
 
@@ -133,61 +130,60 @@ insert into libraire (nom_libraire, prenom_libraire, compte_login_compte) values
 #libraire
 # adresse
 
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 89401, '78552', '7th', 'Dhi as Sufal');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 52543, '09', 'Union', 'Zuyevka');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 79079, '2792', 'Mifflin', 'Korem');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 48533, '742', 'Troy', 'Vejprnice');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 18256, '5248', 'Milwaukee', 'Sloboda');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 84594, '26216', 'Barnett', 'Qal‘at al Andalus');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 84826, '10', 'Texas', 'Palanit');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 40668, '86072', 'Huxley', 'Guiniculalay');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 94184, '80975', 'Pawling', 'Bergem');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 12543, '11477', 'Killdeer', 'Jiji');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 18100, '0085', 'Lakeland', 'Bluefields');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 16144, '4', 'Columbus', 'Caldono');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 92188, '80', 'Vidon', 'Burmakino');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 31309, '4', 'Hallows', 'Mishixiang');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 68897, '7', 'Debra', 'Xuebu');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 37423, '7603', 'Nelson', 'Nancun');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 98431, '31', 'Shopko', 'Stodolishche');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 26962, '1', 'Declaration', 'Mufulira');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 60472, '3', 'Coleman', 'Ramos West');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 67757, '3', 'Oak Valley', 'Cikarang');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 42257, '3', 'Sunnyside', 'Bremen');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 57667, '25644', 'Crowley', 'Bandeirantes');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 12953, '4737', 'Dunning', 'Río Segundo');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 35346, '014', 'Helena', 'Nachalovo');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 20872, '974', 'School', 'Bystrytsya');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 50527, '98', 'Blackbird', 'Pawa');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 46389, '7115', 'Corry', 'Gangjia');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 45546, '04', 'Ilene', 'Gomel');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 42199, '1', 'Corry', 'San Jose');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 36718, '1', 'Aberg', 'Ochër');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 95097, '6', 'Canary', 'Huangxikou');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 44299, '55263', 'Maple', 'Boavista');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 97301, '0', 'Hoard', 'Charagua');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 40039, '6355', 'Clarendon', 'Gornyye Klyuchi');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 24032, '9', 'Mandrake', 'Shangdu');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 25193, '20', 'Starling', 'Jomboy');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 81677, '6726', 'Farwell', 'München');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 69796, '94', 'Shopko', 'Yulin');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 58760, '7610', 'Fallview', 'Jingdang');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 97067, '679', 'Superior', 'Nanjie');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 91247, '8', 'Onsgard', 'Apeldoorn');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 49083, '8099', 'Welch', 'Fujieda');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 57304, '57199', 'North', 'Daciyao');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 15368, '65', 'Manley', 'San Nicolás de los Arroyos');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 60282, '3', 'Derek', 'Rongkou');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 79523, '744', '5th', ' Na Hang');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 90545, '4', 'Killdeer', 'Shiziling');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 67346, '408', '5th', 'Kafr az Zayyat');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 18649, '23', 'Northfield', 'Haikou');
-insert into adresse ( cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 10437, '6683', 'Shopko', 'Estreito Câmara de Lobos');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 89401, '78552', '7th', 'Dhi as Sufal');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 52543, '09', 'Union', 'Zuyevka');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 79079, '2792', 'Mifflin', 'Korem');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 48533, '742', 'Troy', 'Vejprnice');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 18256, '5248', 'Milwaukee', 'Sloboda');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 84594, '26216', 'Barnett', 'Qal‘at al Andalus');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 84826, '10', 'Texas', 'Palanit');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 40668, '86072', 'Huxley', 'Guiniculalay');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 94184, '80975', 'Pawling', 'Bergem');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 12543, '11477', 'Killdeer', 'Jiji');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 18100, '0085', 'Lakeland', 'Bluefields');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 16144, '4', 'Columbus', 'Caldono');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 92188, '80', 'Vidon', 'Burmakino');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 31309, '4', 'Hallows', 'Mishixiang');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 68897, '7', 'Debra', 'Xuebu');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 37423, '7603', 'Nelson', 'Nancun');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 98431, '31', 'Shopko', 'Stodolishche');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 26962, '1', 'Declaration', 'Mufulira');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 60472, '3', 'Coleman', 'Ramos West');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 67757, '3', 'Oak Valley', 'Cikarang');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 42257, '3', 'Sunnyside', 'Bremen');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 57667, '25644', 'Crowley', 'Bandeirantes');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 12953, '4737', 'Dunning', 'Río Segundo');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 35346, '014', 'Helena', 'Nachalovo');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 20872, '974', 'School', 'Bystrytsya');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 50527, '98', 'Blackbird', 'Pawa');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 46389, '7115', 'Corry', 'Gangjia');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 45546, '04', 'Ilene', 'Gomel');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 42199, '1', 'Corry', 'San Jose');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 36718, '1', 'Aberg', 'Ochër');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 95097, '6', 'Canary', 'Huangxikou');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 44299, '55263', 'Maple', 'Boavista');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 97301, '0', 'Hoard', 'Charagua');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 40039, '6355', 'Clarendon', 'Gornyye Klyuchi');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 24032, '9', 'Mandrake', 'Shangdu');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 25193, '20', 'Starling', 'Jomboy');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 81677, '6726', 'Farwell', 'München');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 69796, '94', 'Shopko', 'Yulin');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 58760, '7610', 'Fallview', 'Jingdang');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 97067, '679', 'Superior', 'Nanjie');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 91247, '8', 'Onsgard', 'Apeldoorn');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 49083, '8099', 'Welch', 'Fujieda');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 57304, '57199', 'North', 'Daciyao');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 15368, '65', 'Manley', 'San Nicolás de los Arroyos');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 60282, '3', 'Derek', 'Rongkou');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 79523, '744', '5th', ' Na Hang');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 90545, '4', 'Killdeer', 'Shiziling');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 67346, '408', '5th', 'Kafr az Zayyat');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 18649, '23', 'Northfield', 'Haikou');
+insert into adresse (cp_adresse,numeroDeRue_adresse, rue_adresse, ville_adresse) values ( 10437, '6683', 'Shopko', 'Estreito Câmara de Lobos');
 
 
 
 #client
-
 insert into client (nom_client, prenom_client, id_adresse_adresse, compte_login_compte) values ('nomClientDansLAdb', 'prenomClientDansLAdb', 1,'client' );
 insert into client (nom_client, prenom_client, id_adresse_adresse, compte_login_compte) values ('Kingsly', 'Montel', 2, 'Antonia');
 insert into client (nom_client, prenom_client, id_adresse_adresse, compte_login_compte) values ('Cleopatra', 'Arnison', 3,'Ian' );
@@ -241,7 +237,6 @@ insert into client (nom_client, prenom_client, id_adresse_adresse, compte_login_
 
 
 #livre
-
 insert into livre ( titre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Dennis the Menace Christmas A" , "Mougenel","265 ","Comedy" ,30 ,8.39);
 insert into livre ( titre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("King of Germany" , "Fahrenbach","278 ","Comedy" ,860 ,1.17);
 insert into livre ( titre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Philadelphia Experiment II", "Longbone","276 ","Action|Adventure|Sci-Fi",840 ,7.86);
@@ -282,33 +277,5 @@ insert into livre ( titre_livre, auteur_livre, nombreDePages_livre, Genre_livre,
 insert into livre ( titre_livre, auteur_livre, nombreDePages_livre, Genre_livre, quantite, prix_livre) values ("Changing Habits" , "Shelly","256 ","Comedy|Drama" ,740 ,6.02);
 
 
-/*
-select * from livre;
 
-insert into Commande (id_client, date_Commande)values (1, "1992-12-20");
-select * from Commande;
-
-insert into detailsCommande values (1, 1, 25, 8.39);
-select * from detailsCommande;
-
-select prix_livre from livre where id_livre = 1;
-*/
-
-/*
-select * from stock;
-*/
-
-
-
-select * from client c where compte_login_compte ='';
-
-select * from livre l ;
-
-
-select * from compte c where login_Compte = "client";
-
-
-
-
-
-select md5("client");
+select * from client c ;

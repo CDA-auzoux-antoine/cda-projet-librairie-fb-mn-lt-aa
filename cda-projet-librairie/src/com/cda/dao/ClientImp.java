@@ -66,7 +66,7 @@ public class ClientImp implements IDao<Client> {
 			ResultSet rs = ps.executeQuery();// exectution de la requete pour requete lecture
 
 			while (rs.next()) {
-				Client vClient = new Client(rs.getString(2), rs.getString(3), rs.getInt(4),
+				Client vClient = new Client(rs.getString(2), rs.getString(3), rs.getInt(4),rs.getString(5),
 						rs.getBoolean(TypeDeCompte.ACTIVED.getType()));
 				vClient.setId(rs.getInt(1));// met le client dans rs: retourne des clolonnes à construire
 				return vClient;
@@ -75,12 +75,10 @@ public class ClientImp implements IDao<Client> {
 			ex.printStackTrace();
 		}
 		return null;
-
 	}
 
 	@Override
 	public List<Client> getAll() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
