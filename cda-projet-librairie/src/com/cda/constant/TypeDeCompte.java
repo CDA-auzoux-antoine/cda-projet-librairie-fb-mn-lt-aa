@@ -1,8 +1,5 @@
 package com.cda.constant;
 
-import lombok.Getter;
-
-@Getter
 public enum TypeDeCompte {
 	LIBRAIRE("libraire"), CLIENT("client"), ACTIVED("isActive");
 
@@ -10,5 +7,10 @@ public enum TypeDeCompte {
 
 	private TypeDeCompte(String type) {
 		this.type = type;
+	}
+
+	public String getType() {
+		// TODO Auto-generated method stub
+		return type;
 	}
 }
