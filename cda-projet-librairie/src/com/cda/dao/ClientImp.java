@@ -56,7 +56,6 @@ public class ClientImp implements IDao<Client> {
 
 	@Override
 	public List<Client> getAll() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

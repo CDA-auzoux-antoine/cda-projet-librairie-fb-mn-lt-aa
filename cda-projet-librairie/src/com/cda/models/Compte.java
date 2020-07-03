@@ -13,9 +13,8 @@ public class Compte {
 	private String password;
 	private TypeDeCompte type;
 
-	public Compte(String login, String password, TypeDeCompte type) {
+	public Compte(String login, String password) {
 		this.login = login;
 		this.password = password;
-		this.type = type;
 	}
 }

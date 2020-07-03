@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.cda.constant.TypeDeCompte;
-import com.cda.dao.ClientImp;
 import com.cda.dao.CompteImp;
 import com.cda.dao.IDao;
 import com.cda.dao.LivreImp;
+import com.cda.models.Client;
 import com.cda.models.Compte;
 import com.cda.models.Livre;
 import com.cda.models.Personne;
@@ -30,12 +30,13 @@ public class Ihm {
 	public static void menuInit() {
 		System.out.println("Saisissez votre choix");
 		choix = SCANNER.nextInt();
+		SCANNER.nextLine();
 		switch (choix) {
 		case 1:
 			listerLivre((ArrayList<Livre>) LIVREIMP.getAll());
 			break;
 		case 2:
-
+			switchMenu();
 			break;
 		case 3:
 
@@ -60,11 +61,17 @@ public class Ihm {
 		String login = SCANNER.nextLine();
 		System.out.println("Saissiez Mot de passe : ");
 		String mdp = SCANNER.nextLine();
-		Personne pPersonne = (Personne) COMPTEIMP.find(new Compte(login, mdp, null));
-		if(pCompte.getType().equals(TypeDeCompte.LIBRAIRE)) {
+		Personne pPersonne = (Personne) COMPTEIMP.find(new Compte(login, mdp));
+		if (pPersonne.getType().equals(TypeDeCompte.LIBRAIRE)) {
 			menuLibraire();
-		}else if(pCompte.getType().equals(TypeDeCompte.CLIENT)) {
-			new ClientImp().find(pCompte.)
+		} else if (pPersonne.getType().equals(TypeDeCompte.CLIENT)) {
+			if (((Client) pPersonne).isActived()) {
+				menuClient();
+			} else {
+				System.out.println("Compte inactif.");
+			}
+		} else {
+			System.out.println("Login ou Mdp incorrect.");
 		}
 	}
 
