@@ -22,5 +22,6 @@ public abstract class Personne {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.login = login;
+
 	}
 }

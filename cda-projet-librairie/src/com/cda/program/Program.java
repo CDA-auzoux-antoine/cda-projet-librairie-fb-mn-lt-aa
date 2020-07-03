@@ -8,6 +8,8 @@ public class Program {
 	private static IDao livreImp = new LivreImp();
 
 	public static void main(String[] args) {
+
 		Ihm.menuInit();
+
 	}
 }

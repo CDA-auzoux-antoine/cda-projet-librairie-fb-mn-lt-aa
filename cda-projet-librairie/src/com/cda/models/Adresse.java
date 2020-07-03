@@ -1,10 +1,12 @@
 package com.cda.models;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@Data
 public class Adresse {
 	private int idAdresse = 50;
 	private int numeroRue = 0;

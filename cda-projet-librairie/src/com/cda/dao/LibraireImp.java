@@ -1,16 +1,17 @@
 package com.cda.dao;
 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.cda.connection.MyConnection;
 import com.cda.models.Libraire;
 
 public class LibraireImp implements IDao<Libraire> {
 
+	private static Connection c = MyConnection.getConnexion();
 
 	@Override
 	public <E> Libraire save(E e) {
@@ -44,6 +45,7 @@ public class LibraireImp implements IDao<Libraire> {
 
 	@Override
 	public void remove(Libraire e) {
+
 		String request = "delete from libraire where id_libraire = ?";
 		PreparedStatement ps = null;
 		try {
@@ -82,16 +84,25 @@ public class LibraireImp implements IDao<Libraire> {
 //	where isActive =false	
 
 	@Override
-	public <E> Libraire find(E e) {
+	public <E> Libraire find(E login) {
 
 		Libraire vLibraire = null;
 
 		try {
-			String request = "select * from libraire where id_libraire = ?";
+			String request = "select * from libraire where compte_login_compte = ?";
 			PreparedStatement ps = c.prepareStatement(request);
-			ps.setInt(1, (int) e);
+
+			ps.setString(1, (String) login);
 			ResultSet r = ps.executeQuery();
+
 			while (r.next()) {
+
+				String compteLibraire = r.getString(2);
+				String prenomLibraire = r.getString(3);
+				String nomLibraire = r.getString(4);
+				vLibraire = new Libraire(nomLibraire, prenomLibraire, compteLibraire);
+				vLibraire.setId((int) login);
+
 				Integer vIdLivre = r.getInt(1);
 				String titreLivre = r.getString(2);
 				String auteurLivre = r.getString(3);
@@ -100,13 +111,22 @@ public class LibraireImp implements IDao<Libraire> {
 				Float prixLivre = r.getFloat(6);
 				Integer quantiteLivre = r.getInt(6);
 //				vLibraire = new Libraire(quantiteLivre, genreLivre, genreLivre, genreLivre);
-				vLibraire.setId((int) e);
-			}
+				vLibraire.setId((int) login);
 
-		} catch (SQLException ex) {
+			}
+		}
+
+		catch (SQLException ex) {
 			ex.printStackTrace();
 		}
-		return vLibraire;
+
+		if (vLibraire != null) {
+			return vLibraire;
+		} else {
+
+			return vLibraire;
+
+		}
 
 	}
 
