@@ -11,12 +11,20 @@ public class LibraireService {
 
 		Client vclient = pclientimp.find(idClient);// on recupere client de la bdd on le met dans variable vclient dans
 													// java
-		vclient.setActived(true);// activé dans java, l'ajouter dans la bdd
-		pclientimp.update(vclient);
+		vclient.setActived(true);// activé dans java, l'ajouter ensuite dans la bdd avec maintenant le statut
+									// true
+		pclientimp.update(vclient);// update=modifier, mise à jour, elle est passée à true dans bdd
 
 	}
 
-	public void supprimerDemande() {
+	public void supprimerDemande(ClientImp pclientimp, int idClient) {
+
+		Client vclient = pclientimp.find(idClient);// on recupere client de la bdd on le met dans variable vclient dans
+		// java
+
+		vclient.setActived(true);// activé dans java, l'ajouter ensuite dans la bdd avec maintenant le statut
+// true
+		pclientimp.remove(vclient);// le supprimer dans bdd
 
 	}
 
