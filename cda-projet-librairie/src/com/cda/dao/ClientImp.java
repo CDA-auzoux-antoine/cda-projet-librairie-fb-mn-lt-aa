@@ -13,21 +13,8 @@ import com.cda.models.Client;
 public class ClientImp implements IDao<Client> {
 	private static Connection c = MyConnection.getConnexion();
 
-//	create table client (id_client int(6) auto_increment not null,
-//			nom_client varchar(50) not null,
-//			prenom_client varchar(50) not null,
-//			id_adresse_adresse int(6) not null,
-//			compte_login_compte varchar(100) not null,
-//			isActive Bool DEFAULT false,
-//			primary key (id_client)) ENGINE = InnoDB;
-
 	@Override
-	public void remove(Client e) {// delete from client where id_client = 5;
-		// TODO Auto-generated method stub
 
-	}
-
-	@Override
 	public <E> Client update(E client) {// au lieu de select faire updtate et, passer le 0 en 1
 //		update client 
 //		set isActive = true 
@@ -89,9 +76,9 @@ public class ClientImp implements IDao<Client> {
 		return null;
 	}
 
-	@Override
-	public List<Client> getAll() {
-		return null;
+	public void remove(Client e) {
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override
@@ -121,6 +108,12 @@ public class ClientImp implements IDao<Client> {
 			System.out.println("Entrée impossible.");
 		}
 		return null;
-
 	}
+
+	public List<Client> getAll() {
+		// TODO Auto-generated method stub
+
+		return null;
+	}
+
 }

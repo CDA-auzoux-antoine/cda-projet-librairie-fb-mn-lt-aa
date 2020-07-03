@@ -14,5 +14,7 @@ public class Program {
 
 		LibraireService.validerDemande(null, 0);
 
+		Ihm.menuInit();
+
 	}
 }

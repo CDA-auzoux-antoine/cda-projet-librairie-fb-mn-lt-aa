@@ -46,8 +46,6 @@ public class LibraireImp implements IDao<Libraire> {
 	@Override
 	public void remove(Libraire e) {
 
-		// TODO Auto-generated method stub
-
 		String request = "delete from libraire where id_libraire = ?";
 		PreparedStatement ps = null;
 		try {
@@ -98,22 +96,38 @@ public class LibraireImp implements IDao<Libraire> {
 			ResultSet r = ps.executeQuery();
 
 			while (r.next()) {
+
 				String compteLibraire = r.getString(2);
 				String prenomLibraire = r.getString(3);
 				String nomLibraire = r.getString(4);
 				vLibraire = new Libraire(nomLibraire, prenomLibraire, compteLibraire);
 				vLibraire.setId((int) login);
-			}
 
-		} catch (SQLException ex) {
+				Integer vIdLivre = r.getInt(1);
+				String titreLivre = r.getString(2);
+				String auteurLivre = r.getString(3);
+				Integer nbrePage = r.getInt(4);
+				String genreLivre = r.getString(5);
+				Float prixLivre = r.getFloat(6);
+				Integer quantiteLivre = r.getInt(6);
+//				vLibraire = new Libraire(quantiteLivre, genreLivre, genreLivre, genreLivre);
+				vLibraire.setId((int) login);
+
+			}
+		}
+
+		catch (SQLException ex) {
 			ex.printStackTrace();
 		}
+
 		if (vLibraire != null) {
 			return vLibraire;
 		} else {
 
-			return null;
+			return vLibraire;
+
 		}
+
 	}
 
 	@Override
