@@ -3,10 +3,16 @@ package com.cda.ihm;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.cda.constant.TypeDeCompte;
 import com.cda.dao.CompteImp;
 import com.cda.dao.IDao;
 import com.cda.dao.LivreImp;
+import com.cda.models.Client;
+import com.cda.models.Compte;
+import com.cda.models.Libraire;
 import com.cda.models.Livre;
+import com.cda.service.ClientService;
+import com.cda.service.LibraireService;
 
 public class Ihm {
 
@@ -16,16 +22,17 @@ public class Ihm {
 	private static final IDao COMPTEIMP = new CompteImp();
 
 	public static void menuClient() {
-
+		System.out.println("entré client");
 	}
 
 	public static void menuLibraire() {
-
+		System.out.println("entrée libraire");
 	}
 
 	public static void menuInit() {
 		System.out.println("Saisissez votre choix");
 		choix = SCANNER.nextInt();
+		SCANNER.nextLine();
 		switch (choix) {
 		case 1:
 			listerLivre((ArrayList<Livre>) LIVREIMP.getAll());
@@ -57,6 +64,29 @@ public class Ihm {
 		String login = SCANNER.nextLine();
 		System.out.println("Saissiez Mot de passe : ");
 		String mdp = SCANNER.nextLine();
+<<<<<<< HEAD
+=======
+		System.out.println("Taper 1 pour Client ou 2 pour Libraire");
+		int choix = SCANNER.nextInt();
+		if (choix == 1) {
+			Client client = ClientService.connexion(new Compte(login, mdp, TypeDeCompte.CLIENT));
+			if (client == null) {
+				System.out.println("Login ou mdp incorrect");
+			} else if (client.isActived()) {
+				menuClient();
+			} else {
+				System.out.println("compte inactif");
+			}
+
+		} else if (choix == 2) {
+			Libraire libraire = LibraireService.connexion(new Compte(login, mdp, TypeDeCompte.LIBRAIRE));
+			if (libraire == null) {
+				System.out.println("Login ou mdp incorrect");
+			} else {
+				menuLibraire();
+			}
+		}
+>>>>>>> Fethi
 
 	}
 
