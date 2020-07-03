@@ -1,7 +1,5 @@
 package com.cda.models;
 
-import com.cda.dao.CompteImp;
-
 import lombok.Data;
 
 @Data // initialise les get et sed tostring
@@ -9,7 +7,7 @@ public abstract class Personne {
 
 	private String nom;
 	private String prenom;
-	private Compte compte;
+	private String login;
 
 	private boolean connexion;// pour que le compte soit créé la connexion doit etre à true
 
@@ -19,6 +17,6 @@ public abstract class Personne {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
-		this.compte = (Compte) new CompteImp().find(login);
+		this.login = login;
 	}
 }

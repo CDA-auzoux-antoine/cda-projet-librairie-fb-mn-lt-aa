@@ -3,14 +3,10 @@ package com.cda.ihm;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.cda.constant.TypeDeCompte;
-import com.cda.dao.ClientImp;
 import com.cda.dao.CompteImp;
 import com.cda.dao.IDao;
 import com.cda.dao.LivreImp;
-import com.cda.models.Compte;
 import com.cda.models.Livre;
-import com.cda.models.Personne;
 
 public class Ihm {
 
@@ -55,17 +51,17 @@ public class Ihm {
 		}
 	}
 
-	private static void switchMenu() {
-		System.out.println("Saisissez Login : ");
-		String login = SCANNER.nextLine();
-		System.out.println("Saissiez Mot de passe : ");
-		String mdp = SCANNER.nextLine();
-		Personne pPersonne = (Personne) COMPTEIMP.find(new Compte(login, mdp, null));
-		if(pCompte.getType().equals(TypeDeCompte.LIBRAIRE)) {
-			menuLibraire();
-		}else if(pCompte.getType().equals(TypeDeCompte.CLIENT)) {
-			new ClientImp().find(pCompte.)
-		}
-	}
+//	private static void switchMenu() {
+//		System.out.println("Saisissez Login : ");
+//		String login = SCANNER.nextLine();
+//		System.out.println("Saissiez Mot de passe : ");
+//		String mdp = SCANNER.nextLine();
+//		Personne pPersonne = (Personne) COMPTEIMP.find(new Compte(login, mdp, null));
+//		if(pCompte.getType().equals(TypeDeCompte.LIBRAIRE)) {
+//			menuLibraire();
+//		}else if(pCompte.getType().equals(TypeDeCompte.CLIENT)) {
+//			new ClientImp().find(pCompte.)
+//		}
+//	}
 
 }
