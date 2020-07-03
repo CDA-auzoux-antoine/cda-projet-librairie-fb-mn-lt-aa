@@ -13,5 +13,4 @@ public class Client extends Personne {
 		this.id_adresse = id_adresse;
 		this.isActived = isActived;
 	}
-
 }
