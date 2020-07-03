@@ -1,5 +1,10 @@
 package com.cda.models;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Adresse {
 
 	private int numero;
