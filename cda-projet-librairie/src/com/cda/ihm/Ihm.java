@@ -22,7 +22,26 @@ public class Ihm {
 	private static final IDao COMPTEIMP = new CompteImp();
 
 	public static void menuClient() {
-		System.out.println("entré client");
+		System.out.println("saisissez votre choix :");
+		int choix = SCANNER.nextInt();
+		SCANNER.nextLine();
+		switch (choix) {
+		case 1:
+//commander
+			break;
+		case 2:
+//listerMesCommandes
+			break;
+		case 3:
+//
+			break;
+		case 4:
+
+			break;
+
+		default:
+			break;
+		}
 	}
 
 	public static void menuLibraire() {
