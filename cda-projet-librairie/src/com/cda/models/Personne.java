@@ -15,7 +15,7 @@ public abstract class Personne {
 
 	private int id;
 
-	public Personne(int id, String nom, String prenom, String login) {
+	public Personne(String nom, String prenom, String login) {
 		super();
 		this.id = id;
 		this.nom = nom;
