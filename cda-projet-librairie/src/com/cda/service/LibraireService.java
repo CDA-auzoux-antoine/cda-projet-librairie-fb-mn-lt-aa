@@ -1,8 +1,11 @@
 package com.cda.service;
 
 import com.cda.dao.ClientImp;
+import com.cda.dao.CompteImp;
 import com.cda.dao.LivreImp;
 import com.cda.models.Client;
+import com.cda.models.Compte;
+import com.cda.models.Libraire;
 import com.cda.models.Livre;
 
 public class LibraireService {
@@ -42,6 +45,10 @@ public class LibraireService {
 	public String toString() {
 		return "Libraire [getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
 				+ "]";
+	}
+
+	public static Libraire connexion(Compte compte) {
+		return (Libraire) new CompteImp().find(compte);
 	}
 
 }
