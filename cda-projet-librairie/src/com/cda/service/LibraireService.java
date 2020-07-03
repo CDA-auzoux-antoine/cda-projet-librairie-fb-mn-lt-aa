@@ -10,7 +10,7 @@ import com.cda.models.Livre;
 
 public class LibraireService {
 
-	public void validerDemande(ClientImp pclientimp, int idClient) {
+	public static void validerDemande(ClientImp pclientimp, int idClient) {
 
 		Client vclient = pclientimp.find(idClient);// on recupere client de la bdd on le met dans variable vclient dans
 													// java
