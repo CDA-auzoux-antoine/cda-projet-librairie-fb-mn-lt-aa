@@ -65,19 +65,20 @@ public class ClientService {
 
 	// 3
 	public static String validePassword(String pPassword, String pPasswordConfirmation) throws Exception {
-		if (pPassword != null && pPassword.trim().length() != 0 && pPasswordConfirmation != null
-				&& pPasswordConfirmation.trim().length() != 0) {
+
+		if (pPassword != null && pPasswordConfirmation != null) {
 			if (!pPassword.equals(pPasswordConfirmation)) {
 				throw new Exception("Les mots de passe sont différents.");
-			} else if (pPassword.trim().length() < 5) {
+			} else if (pPassword.length() < 5) {
 				throw new Exception("Les mots de passe doivent contenir au moins 5 caractères.");
 			}
-		} else if (pPassword == null || pPassword.trim().length() == 0) {
+		} else if (pPassword == null) {
 			throw new Exception("Merci de saisir et confirmer votre mot de passe.");
 		} else {
 			validationInscription.remove(3);
+			return pPassword;
 		}
-		return pPassword;
+		return null;
 	}
 
 	// 4
@@ -139,6 +140,9 @@ public class ClientService {
 	public static void inscription(String pNom, String pPrenom, String pLogin, String pPassword,
 			String pPasswordConfirmation, String pNumeroRue, String pRue, String pCodePostal, String pVille) {
 		verifInscription();
+		int vNumeroRue = Integer.parseInt(pNumeroRue);
+		int vCodePostal = Integer.parseInt(pCodePostal);
+
 		try {
 			valideNom(pNom);
 			validePrenom(pPrenom);
@@ -149,13 +153,12 @@ public class ClientService {
 			valideCodePostal(pCodePostal);
 			valideVille(pVille);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		if (validationInscription.isEmpty()) {
-			new Client(pNom, pPrenom, Adresse.getIdAdresse(), pLogin, false);
-			new Adresse(Adresse.getIdAdresse(), 0, null, 0, null);
+			Adresse adresse = new Adresse(vNumeroRue, pRue, vCodePostal, pVille);
+			new Client(pNom, pPrenom, adresse.getIdAdresse(), pLogin, false);
 			new Compte(null, null, null);
 			System.out.println("compte créé.");
 		} else {
