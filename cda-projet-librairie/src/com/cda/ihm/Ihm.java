@@ -31,7 +31,7 @@ public class Ihm {
 			listerLivre((ArrayList<Livre>) LIVREIMP.getAll());
 			break;
 		case 2:
-
+			switchMenu();
 			break;
 		case 3:
 
@@ -51,17 +51,23 @@ public class Ihm {
 		}
 	}
 
-//	private static void switchMenu() {
+	private static void switchMenu() {
 //		System.out.println("Saisissez Login : ");
 //		String login = SCANNER.nextLine();
 //		System.out.println("Saissiez Mot de passe : ");
 //		String mdp = SCANNER.nextLine();
-//		Personne pPersonne = (Personne) COMPTEIMP.find(new Compte(login, mdp, null));
-//		if(pCompte.getType().equals(TypeDeCompte.LIBRAIRE)) {
+//		Personne pPersonne = (Personne) COMPTEIMP.find(new Compte(login, mdp));
+//		if (pPersonne.getType().equals(TypeDeCompte.LIBRAIRE)) {
 //			menuLibraire();
-//		}else if(pCompte.getType().equals(TypeDeCompte.CLIENT)) {
-//			new ClientImp().find(pCompte.)
+//		} else if (pPersonne.getType().equals(TypeDeCompte.CLIENT)) {
+//			if (((Client) pPersonne).isActived()) {
+//				menuClient();
+//			} else {
+//				System.out.println("Compte inactif.");
+//			}
+//		} else {
+//			System.out.println("Login ou Mdp incorrect.");
 //		}
-//	}
+	}
 
 }

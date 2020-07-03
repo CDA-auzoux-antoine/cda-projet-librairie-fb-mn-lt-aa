@@ -1,8 +1,12 @@
 package com.cda.models;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Data // initialise les get et sed tostring
+@Getter
+@Setter
 public abstract class Personne {
 
 	private String nom;
