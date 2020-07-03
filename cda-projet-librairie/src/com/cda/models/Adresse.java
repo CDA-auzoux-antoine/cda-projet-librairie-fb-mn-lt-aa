@@ -1,14 +1,7 @@
 package com.cda.models;
 
-<<<<<<< HEAD
-import lombok.Data;
-
-@Data
-public class Adresse {
-=======
 import lombok.Getter;
 import lombok.Setter;
->>>>>>> 5eb3b6676ff015a6ae6a987282a0f6a39984f899
 
 @Getter
 @Setter
@@ -19,16 +12,9 @@ public class Adresse {
 	private static int codePostal = 0;
 	private static String ville = "ville";
 
-<<<<<<< HEAD
 	public Adresse(int numero, String rue, int codePostal, String ville) {
-		this.numero = numero;
-		this.rue = rue;
-=======
-	public Adresse(int id, int numero, String rue, int codePostal, String ville) {
-		this.idAdresse = id;
 		this.numeroRue = numero;
 		this.nomRue = rue;
->>>>>>> 5eb3b6676ff015a6ae6a987282a0f6a39984f899
 		this.codePostal = codePostal;
 		this.ville = ville;
 	}
