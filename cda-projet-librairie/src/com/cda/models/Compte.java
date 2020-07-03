@@ -2,9 +2,12 @@ package com.cda.models;
 
 import com.cda.constant.TypeDeCompte;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
+
 public class Compte {
 	private String login;
 	private String password;

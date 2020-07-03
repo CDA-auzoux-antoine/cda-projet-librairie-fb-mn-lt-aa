@@ -7,10 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.cda.connection.MyConnection;
-import com.cda.constant.TypeDeCompte;
-import com.cda.models.Client;
 import com.cda.models.Compte;
-import com.cda.models.Libraire;
 
 public class CompteImp<T> implements IDao<T> {
 	private static Connection c = MyConnection.getConnexion();
@@ -42,12 +39,7 @@ public class CompteImp<T> implements IDao<T> {
 			ps.setString(2, ((Compte) compte).getPassword());
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				if (((Compte) compte).getType().equals(TypeDeCompte.CLIENT)) {
-					return (T) new Client(rs.getInt(1), rs.getString(2), rs.getString(2), rs.getInt(4), (Compte) compte,
-							rs.getBoolean(TypeDeCompte.ACTIVED.getType()));
-				} else if (((Compte) compte).getType().equals(TypeDeCompte.LIBRAIRE)) {
-					return (T) new Libraire(rs.getInt(1), rs.getString(2), rs.getString(2), (Compte) compte);
-				}
+
 			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();
