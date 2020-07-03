@@ -20,26 +20,46 @@ public class ClientImp implements IDao<Client> {
 	}
 
 	@Override
-	public void remove(Client e) {
+	public void remove(Client e) {// delete from client where id_client = 5;
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public <E> Client update(E e) {// au lieu de select faire updtate et, passer le 0 en 1
+	public <E> Client update(E id) {// au lieu de select faire updtate et, passer le 0 en 1
+//		update client 
+//		set isActive = true 
+//		where isActive =false
 
-		return null;
-	}
-
-	@Override
-	public <E> Client find(E id) {
-		String request = "select * from client where id_client=?";
+		// create statement ? Statement statement = connexion.createStatement
+		String request = "update * from client where id_client=?";//
 
 		try {
 			PreparedStatement ps = null;
 			ps = c.prepareStatement(request);
-			ps.setInt(1, (int) id);// on passe int id et on le set au ?
-			ResultSet rs = ps.executeQuery();
+			ps.setInt(1, (int) id);// on passe int id (cast) et on le set au ? du string, on met 1 car c'est le
+									// premier id
+			ResultSet rs = ps.executeUpdate();// exectution de la requete pour requete ecriture
+
+			while (rs.next()) {// met le client dans rs: retourne des clolonnes à construire (un tableau)
+				return new Client(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),
+						rs.getBoolean(TypeDeCompte.ACTIVED.getType()));
+			}
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public <E> Client find(E login) {
+		String request = "select * from client where id_client=?";// preparation de la requete
+
+		try {
+			PreparedStatement ps = null;
+			ps = c.prepareStatement(request);
+			ps.setString(1, (String) login);// on passe int id et on le set au ?
+			ResultSet rs = ps.executeQuery();// exectution de la requete pour requete lecture
 
 			while (rs.next()) {// met le client dans rs: retourne des clolonnes à construire
 				return new Client(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),
