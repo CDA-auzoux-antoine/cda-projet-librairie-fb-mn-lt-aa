@@ -34,13 +34,10 @@ public class Ihm {
 			switchMenu();
 			break;
 		case 3:
-
 			break;
-
 		default:
 			break;
 		}
-
 	}
 
 	private static void listerLivre(ArrayList<Livre> pArray) {

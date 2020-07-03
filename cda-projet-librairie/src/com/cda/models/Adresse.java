@@ -1,5 +1,8 @@
 package com.cda.models;
 
+import lombok.Data;
+
+@Data
 public class Adresse {
 
 	private int numero;
@@ -8,8 +11,7 @@ public class Adresse {
 	private String ville;
 	private int id;
 
-	public Adresse(int id, int numero, String rue, int codePostal, String ville) {
-		this.id = id;
+	public Adresse(int numero, String rue, int codePostal, String ville) {
 		this.numero = numero;
 		this.rue = rue;
 		this.codePostal = codePostal;
