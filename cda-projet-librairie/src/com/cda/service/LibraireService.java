@@ -10,8 +10,7 @@ import com.cda.models.Livre;
 
 public class LibraireService {
 
-	public static void validerDemande(ClientImp pclientimp, String loginClient) {
-
+	public void validerDemande(ClientImp pclientimp, String loginClient) {
 		Client vclient = pclientimp.find(loginClient);// on recupere client de la bdd on le met dans variable vclient
 														// dans java
 		vclient.setActived(true);// activé dans java, l'ajouter ensuite dans la bdd avec maintenant le statut
