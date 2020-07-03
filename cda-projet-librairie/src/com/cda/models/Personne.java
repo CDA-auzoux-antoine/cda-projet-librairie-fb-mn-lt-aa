@@ -1,5 +1,7 @@
 package com.cda.models;
 
+import com.cda.dao.CompteImp;
+
 import lombok.Data;
 
 @Data // initialise les get et sed tostring
@@ -13,11 +15,11 @@ public abstract class Personne {
 
 	private int id;
 
-	public Personne(int id, String nom, String prenom) {
+	public Personne(int id, String nom, String prenom, String login) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
-		this.compte = compte;
+		this.compte = (Compte) new CompteImp().find(login);
 	}
 }

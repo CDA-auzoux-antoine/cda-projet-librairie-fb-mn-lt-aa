@@ -34,7 +34,6 @@ public class ClientImp implements IDao<Client> {
 	@Override
 	public <E> Client find(E id) {
 		String request = "select * from client where id_client=?";
-
 		try {
 			PreparedStatement ps = null;
 			ps = c.prepareStatement(request);
@@ -42,14 +41,13 @@ public class ClientImp implements IDao<Client> {
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {// met le client dans rs: retourne des clolonnes à construire
-				return new Client(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),
+				return new Client(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5),
 						rs.getBoolean(TypeDeCompte.ACTIVED.getType()));
 			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
 		return null;
-
 	}
 
 	@Override
