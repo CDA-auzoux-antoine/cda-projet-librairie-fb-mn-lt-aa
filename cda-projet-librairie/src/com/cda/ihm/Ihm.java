@@ -27,7 +27,25 @@ public class Ihm {
 		SCANNER.nextLine();
 		switch (choix) {
 		case 1:
-//commander
+			System.out.println("nom : ");
+			String nom = SCANNER.nextLine();
+			System.out.println("prenom : ");
+			String prenom = SCANNER.nextLine();
+			System.out.println("login : ");
+			String login = SCANNER.nextLine();
+			System.out.println("pwd : ");
+			String password = SCANNER.nextLine();
+			System.out.println("confirm pwd : ");
+			String passwordConfirm = SCANNER.nextLine();
+			System.out.println("rue : ");
+			String rue = SCANNER.nextLine();
+			System.out.println("ville : ");
+			String ville = SCANNER.nextLine();
+			System.out.println("num : ");
+			String num = SCANNER.nextLine();
+			System.out.println("code postal : ");
+			String codePstal = SCANNER.nextLine();
+			ClientService.inscription(nom, prenom, login, password, passwordConfirm, num, rue, codePstal, ville);
 			break;
 		case 2:
 //listerMesCommandes

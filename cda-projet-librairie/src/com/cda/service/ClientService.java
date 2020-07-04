@@ -55,7 +55,7 @@ public class ClientService {
 
 	// 2
 	public static String valideLogin(String pLogin) throws Exception {
-		if (pLogin != null && pLogin.trim().length() != 0) {
+		if (pLogin == null && pLogin.trim().length() == 0) {
 			throw new Exception("Login requis.");
 		} else {
 			validationInscription.remove(2);
@@ -97,12 +97,10 @@ public class ClientService {
 
 	// 5
 	public static String valideNomRue(String pNomRue) throws Exception {
-		m = p.matcher(pNomRue);
 
 		if (pNomRue == null || pNomRue.trim().length() == 0) {
 			throw new Exception("Nom de rue requis.");
-		} else if (!(m.find())) {
-			throw new Exception("Le nom de rue est incorrect.");
+
 		} else {
 			validationInscription.remove(5);
 			return pNomRue;
